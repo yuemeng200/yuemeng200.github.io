@@ -1,0 +1,25 @@
+{
+  "name": "yuemeng200.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuemeng200/yuemeng200.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuemeng200/yuemeng200.github.io/issues"
+  },
+  "homepage": "https://github.com/yuemeng200/yuemeng200.github.io#readme",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
