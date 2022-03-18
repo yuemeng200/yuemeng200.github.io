@@ -11,7 +11,6 @@ module.exports = {
       {
         text: "专题",
         link: "/topics",
-        ariaLabel: "Language Menu",
         items: [
           {
             text: "vue原理",
@@ -23,23 +22,21 @@ module.exports = {
           },
         ],
       },
-      { text: "随想", link: "/thought" },
-      { text: "test", link: "/guide/" },
+      {
+        text: "随想",
+        link: "/thoughts",
+        items: [
+          {
+            text: "2022",
+            link: "/thoughts/2022/",
+          },
+        ],
+      },
     ],
     sidebar: {
-      "/guide/": [
-        "",
-        "guide",
-        "configuration",
-        "recipes",
-        "security",
-        "testingAndDebugging",
-        "commonIssues",
-      ],
-      "/topics/vue": [""],
-      "/topics/broswer": [""],
-      "/thoughts/": [""],
+      "/topics/vue/": [""],
+      "/topics/broswer/": [""],
+      "/thoughts/2022/": [""],
     },
-    docsDir: "docs",
   },
 };
