@@ -1,31 +1,45 @@
 module.exports = {
-  title: 'yuemeng',
-  description: '回忆录',
+  title: "yuemeng",
+  description: "Truelove always keeps one upward.",
   head: [
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
-    ['script', { src: '/scripts/scrollToHash.js' }],
+    ["link", { rel: "shortcut icon", href: "/favicon.svg" }],
+    ["script", { src: "/scripts/scrollToHash.js" }],
   ],
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
+      { text: "Home", link: "/" },
       {
-        text: 'v1.x',
-        link:
-          'https://github.com/nklayman/vue-cli-plugin-electron-builder/tree/v1'
+        text: "专题",
+        link: "/topics",
+        ariaLabel: "Language Menu",
+        items: [
+          {
+            text: "vue原理",
+            link: "/topics/vue/",
+          },
+          {
+            text: "浏览器相关",
+            link: "/topics/broswer/",
+          },
+        ],
       },
+      { text: "随想", link: "/thought" },
+      { text: "test", link: "/guide/" },
     ],
     sidebar: {
-      '/guide/': [
-        '',
-        'guide',
-        'configuration',
-        'recipes',
-        'security',
-        'testingAndDebugging',
-        'commonIssues'
-      ]
+      "/guide/": [
+        "",
+        "guide",
+        "configuration",
+        "recipes",
+        "security",
+        "testingAndDebugging",
+        "commonIssues",
+      ],
+      "/topics/vue": [""],
+      "/topics/broswer": [""],
+      "/thoughts/": [""],
     },
-    docsDir: 'docs',
-  }
-}
+    docsDir: "docs",
+  },
+};
