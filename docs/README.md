@@ -2,7 +2,7 @@
 home: true
 # heroImage: /hero.jpg
 actionText: Enter
-actionLink: /guide/
+actionLink: /Main/
 ---
 
 <!-- <div class="features">

@@ -7,36 +7,38 @@ module.exports = {
   ],
   themeConfig: {
     nav: [
-      { text: "Home", link: "/" },
+      { text: "主页", link: "/" },
       {
-        text: "专题",
-        link: "/topics",
+        text: "前端专题",
+        link: "/Topics",
         items: [
           {
             text: "vue原理",
-            link: "/topics/vue/",
+            link: "/Topics/vue/",
           },
           {
             text: "浏览器相关",
-            link: "/topics/broswer/",
+            link: "/Topics/broswer/",
           },
         ],
       },
+      { text: "工具", link: "/Tools/" },
       {
         text: "随想",
-        link: "/thoughts",
+        link: "/Thoughts",
         items: [
           {
             text: "2022",
-            link: "/thoughts/2022/",
+            link: "/Thoughts/2022/",
           },
         ],
       },
     ],
     sidebar: {
-      "/topics/vue/": [""],
-      "/topics/broswer/": [""],
-      "/thoughts/2022/": [""],
+      "/Topics/vue/": [""],
+      "/Topics/broswer/": [""],
+      "/Tools/": ["", "regexp"],
+      "/Thoughts/2022/": [""],
     },
   },
 };
