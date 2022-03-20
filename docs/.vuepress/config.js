@@ -6,6 +6,7 @@ module.exports = {
     ["script", { src: "/scripts/scrollToHash.js" }],
   ],
   themeConfig: {
+    logo: "/assets/img/logo.jpg",
     nav: [
       { text: "主页", link: "/" },
       {
