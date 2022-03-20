@@ -1,5 +1,5 @@
 ---
 home: true
 actionText: Enter
-actionLink: /Main/
+actionLink: /tools/
 ---

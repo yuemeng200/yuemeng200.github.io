@@ -11,35 +11,36 @@ module.exports = {
       { text: "主页", link: "/" },
       {
         text: "前端专题",
-        link: "/Topics",
+        link: "/topics",
         items: [
           {
             text: "vue原理",
-            link: "/Topics/vue/",
+            link: "/topics/vue/",
           },
           {
             text: "浏览器相关",
-            link: "/Topics/broswer/",
+            link: "/topics/broswer/",
           },
         ],
       },
-      { text: "工具", link: "/Tools/" },
+      { text: "工具", link: "/tools/" },
       {
         text: "随想",
-        link: "/Thoughts",
+        link: "/thoughts",
         items: [
           {
             text: "2022",
-            link: "/Thoughts/2022/",
+            link: "/thoughts/2022/",
           },
         ],
       },
     ],
     sidebar: {
-      "/Topics/vue/": [""],
-      "/Topics/broswer/": [""],
-      "/Tools/": ["", "regexp"],
-      "/Thoughts/2022/": [""],
+      "/topics/vue/": [""],
+      "/topics/broswer/": [""],
+      "/tools/": ["", "regexp"],
+      "/thoughts/2022/": [""],
     },
+    smoothScroll: true,
   },
 };
