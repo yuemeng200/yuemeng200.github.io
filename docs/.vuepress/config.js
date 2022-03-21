@@ -10,36 +10,61 @@ module.exports = {
     nav: [
       { text: "主页", link: "/" },
       {
-        text: "前端专题",
-        link: "/topics",
+        text: "前端技术专题",
+        link: "/topics/",
         items: [
           {
-            text: "vue原理",
+            text: "Javascript",
+            link: "/topics/js/",
+          },
+          {
+            text: "CSS",
+            link: "/topics/css/",
+          },
+          {
+            text: "Typescript",
+            link: "/topics/ts/",
+          },
+          {
+            text: "vue.js",
             link: "/topics/vue/",
           },
           {
-            text: "浏览器相关",
+            text: "浏览器",
             link: "/topics/broswer/",
           },
         ],
       },
+      {
+        text: "其他专题",
+        link: "/others/",
+        items: [
+          {
+            text: "Node.js",
+            link: "/others/node/",
+          },
+          {
+            text: "Electron",
+            link: "/others/electron",
+          },
+          {
+            text: "Nest.js",
+            link: "/others/nest",
+          },
+        ],
+      },
       { text: "工具", link: "/tools/" },
+      { text: "算法", link: "/algorithm/" },
       {
         text: "随想",
         link: "/thoughts",
-        items: [
-          {
-            text: "2022",
-            link: "/thoughts/2022/",
-          },
-        ],
       },
     ],
     sidebar: {
       "/topics/vue/": [""],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
-      "/thoughts/2022/": [""],
+      "/thoughts/": [""],
     },
     smoothScroll: true,
   },
