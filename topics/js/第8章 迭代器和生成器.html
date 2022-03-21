@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1、迭代器 | yuemeng</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="shortcut icon" href="/favicon.svg">
+    <script src="/scripts/scrollToHash.js"></script>
+    <meta name="description" content="Truelove always keeps one upward.">
+    
+    <link rel="preload" href="/assets/css/0.styles.b2204de5.css" as="style"><link rel="preload" href="/assets/js/app.6b29fe95.js" as="script"><link rel="preload" href="/assets/js/2.8fce6341.js" as="script"><link rel="preload" href="/assets/js/22.3a98ec59.js" as="script"><link rel="prefetch" href="/assets/js/10.94007ead.js"><link rel="prefetch" href="/assets/js/11.ef7b5c9a.js"><link rel="prefetch" href="/assets/js/12.2c4b8515.js"><link rel="prefetch" href="/assets/js/13.1a56215f.js"><link rel="prefetch" href="/assets/js/14.46ebad27.js"><link rel="prefetch" href="/assets/js/15.67a54127.js"><link rel="prefetch" href="/assets/js/16.b84aa548.js"><link rel="prefetch" href="/assets/js/17.e8b0f141.js"><link rel="prefetch" href="/assets/js/18.d507071e.js"><link rel="prefetch" href="/assets/js/19.ecc9c165.js"><link rel="prefetch" href="/assets/js/20.447518a3.js"><link rel="prefetch" href="/assets/js/21.1ffcf313.js"><link rel="prefetch" href="/assets/js/23.d25efc33.js"><link rel="prefetch" href="/assets/js/24.197f8bb9.js"><link rel="prefetch" href="/assets/js/25.73cc163d.js"><link rel="prefetch" href="/assets/js/3.72e145c7.js"><link rel="prefetch" href="/assets/js/4.0de16ea4.js"><link rel="prefetch" href="/assets/js/5.27630c10.js"><link rel="prefetch" href="/assets/js/6.40410483.js"><link rel="prefetch" href="/assets/js/7.f3b3c511.js"><link rel="prefetch" href="/assets/js/8.b8e831ba.js"><link rel="prefetch" href="/assets/js/9.f9075f37.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b2204de5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.jpg" alt="yuemeng" class="logo"> <span class="site-name can-hide">yuemeng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link router-link-active">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron.html" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest.html" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/thoughts.html" class="nav-link">
+  随想
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link router-link-active">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron.html" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest.html" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/thoughts.html" class="nav-link">
+  随想
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1、迭代器"><a href="#_1、迭代器" class="header-anchor">#</a> 1、迭代器</h2> <h3 id="_1-可迭代对象的使用"><a href="#_1-可迭代对象的使用" class="header-anchor">#</a> （1）可迭代对象的使用</h3> <p>可迭代对象有如下用途：</p> <ul><li><code>for of</code> 遍历</li> <li><code>...</code>操作符展开为数组</li> <li>对可迭代对象解构赋值</li></ul> <h3 id="_2-迭代原理"><a href="#_2-迭代原理" class="header-anchor">#</a> （2）迭代原理</h3> <p><img src="img/image-20211028161307121.png" alt="image-20211028161307121"></p> <p><code>迭代结果对象</code>的<code>value属性</code>常常是我们真正需要的数据，上一小节的各种访问方式都是隐式地执行了上面的流程。</p> <p>值得注意的是，<code>迭代器对象</code>本身也是<code>可迭代对象</code>，具有<code>Symbol.iterator</code>属性，返回该迭代器对象本身。</p> <p>如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> iter <span class="token operator">=</span> list<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> head <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>	<span class="token comment">// 1</span>
+<span class="token keyword">let</span> tail <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>iter<span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// [2,3,4]</span>
+</code></pre></div><h3 id="_3-实现可迭代对象类"><a href="#_3-实现可迭代对象类" class="header-anchor">#</a> （3）实现可迭代对象类</h3> <p>实现可迭代的数值Range类：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Range</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">from<span class="token punctuation">,</span> to</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>from <span class="token operator">=</span> from<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>to <span class="token operator">=</span> to<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> next <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">ceil</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>from<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// 起始值</span>
+        <span class="token keyword">let</span> last <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>to<span class="token punctuation">;</span>		<span class="token comment">// 最大值</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token punctuation">(</span>next<span class="token operator">&lt;=</span>last<span class="token punctuation">)</span><span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token literal-property property">value</span><span class="token operator">:</span> next<span class="token operator">++</span> <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">done</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>通过迭代器我们可以重写一些迭代方法。如map()：</p> <div class="language-js extra-class"><pre class="language-js"><code>fucntion <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">iterable<span class="token punctuation">,</span> f</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> iterator <span class="token operator">=</span> iterable<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> v <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>done<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> v<span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token function">f</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span><span class="token operator">...</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token parameter">x</span><span class="token operator">=&gt;</span>x<span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// [1,4,9,1]</span>
+</code></pre></div><blockquote><p>非常巧妙。</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6b29fe95.js" defer></script><script src="/assets/js/2.8fce6341.js" defer></script><script src="/assets/js/22.3a98ec59.js" defer></script>
+  </body>
+</html>
