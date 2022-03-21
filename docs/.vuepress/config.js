@@ -7,6 +7,8 @@ module.exports = {
   ],
   themeConfig: {
     logo: "/favicon.svg",
+    sidebarDepth: 3,
+    // INFO 导航栏设置
     nav: [
       { text: "主页", link: "/" },
       {
@@ -35,6 +37,7 @@ module.exports = {
           },
         ],
       },
+      { text: "算法", link: "/algorithm/" },
       {
         text: "其他专题",
         link: "/others/",
@@ -45,27 +48,38 @@ module.exports = {
           },
           {
             text: "Electron",
-            link: "/others/electron",
+            link: "/others/electron/",
           },
           {
             text: "Nest.js",
-            link: "/others/nest",
+            link: "/others/nest/",
           },
         ],
       },
       { text: "工具", link: "/tools/" },
-      { text: "算法", link: "/algorithm/" },
       {
         text: "随想",
-        link: "/thoughts",
+        link: "/thoughts/",
       },
     ],
+    // INFO 侧边栏设置
     sidebar: {
+      "/topics/js": [
+        "",
+        "basic",
+        "object",
+        "array",
+        "function",
+        "class",
+        "module",
+        "api",
+        "iterator",
+        "sync",
+      ],
       "/topics/vue/": [""],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
     },
-    smoothScroll: true,
   },
 };
