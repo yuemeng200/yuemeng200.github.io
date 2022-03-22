@@ -137,7 +137,7 @@ let result = `sum of them is ${a+b}`;	// 3
 
 ### 4、null 和 undefined
 
-<img src="img/v2-ae5b7d880c10946840c813b5257ce5a2_1440w.jpg" alt="img" style="zoom: 80%;" />
+<img src="./img/v2-ae5b7d880c10946840c813b5257ce5a2_1440w.jpg" alt="img" style="zoom: 80%;" />
 
 用null表示程序级别、正常或意料之中的没有值；用undefined表示一种系统级别、意料之外或类似错误的没有值。
 

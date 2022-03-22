@@ -8,6 +8,7 @@ module.exports = {
   themeConfig: {
     logo: "/favicon.svg",
     sidebarDepth: 3,
+    smoothScroll: true,
     // INFO 导航栏设置
     nav: [
       { text: "主页", link: "/" },
@@ -64,7 +65,7 @@ module.exports = {
     ],
     // INFO 侧边栏设置
     sidebar: {
-      "/topics/js": [
+      "/topics/js/": [
         "",
         "basic",
         "object",
@@ -74,9 +75,9 @@ module.exports = {
         "module",
         "api",
         "iterator",
-        "sync",
+        "async",
       ],
-      "/topics/vue/": [""],
+      "/topics/vue/": ["", 'test'],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],

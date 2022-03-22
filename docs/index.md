@@ -1,19 +1,22 @@
 ---
 home: true
 actionText: Enter
-actionLink: /tools/
+actionLink: /topics/js/
 ---
 <div class="features">
-  <div class="feature">
-    <h2>One</h2>
-    <p>Balabala</p>
+  <div class="feature" style="max-width: 40%;">
+    <h2>A front-end programmer</h2>
+      <p>
+        <span>专题：</span>
+        <a href="topics/js">Javascript</a>、CSS、Typescript、Vue.js、浏览器、Electron、Node.js、Nest.js ...
+      </p>
+      <p>
+        <span>工具：</span>
+        <a href="tools/regexp.html">正则表达式</a>、Git、Webpack、Nginx ...
+      </p>
   </div>
-  <div class="feature">
-    <h2>Two</h2>
-    <p>Balabala</p>
-  </div>
-  <div class="feature">
-    <h2>Three</h2>
-    <p>Balabala</p>
-  </div>
+  <!-- <div class="feature" style="max-width: 40%;">
+    <h2>A literature and rock' n' roll fan</h2>
+    <p></p>
+  </div> -->
 </div>

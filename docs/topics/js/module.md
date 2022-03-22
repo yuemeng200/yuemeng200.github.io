@@ -210,7 +210,7 @@ import("./stats.js").then(stats => {
 
 #### ① 普通script
 
-![image](img/31621391-39849b1a-b25f-11e7-9301-641b1bc07155.png)
+![image](./img/31621391-39849b1a-b25f-11e7-9301-641b1bc07155.png)
 
 文档解析的过程中，如果遇到`script`脚本，就会停止页面的解析进行下载，所有资源下载完毕后，按顺序依次执行。当这两个脚本都执行完毕后，往下继续解析页面。
 
@@ -218,7 +218,7 @@ import("./stats.js").then(stats => {
 
 > 推迟执行。
 
-![image](img/31621324-046d4a44-b25f-11e7-9d15-fe4d6a5726ae.png)
+![image](./img/31621324-046d4a44-b25f-11e7-9d15-fe4d6a5726ae.png)
 
 文档解析时，遇到设置了`defer`的脚本，就会在后台进行下载，但是并不会阻止文档的渲染，当页面解析和渲染完毕后。会等到所有的`defer`脚本加载完毕并按照顺序执行，执行完毕后会触发`DOMContentLoaded`事件。
 
@@ -226,7 +226,7 @@ import("./stats.js").then(stats => {
 
 > 赶紧下载，赶紧执行。
 
-![image](img/31621170-b4cc0ef8-b25e-11e7-9980-99feeb9f5042.png)
+![image](./img/31621170-b4cc0ef8-b25e-11e7-9980-99feeb9f5042.png)
 
 `async`脚本会在加载完毕后立即执行。`async`脚本的加载不计入`DOMContentLoaded`事件统计，故下图也可能发生：
 
