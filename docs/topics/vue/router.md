@@ -1,4 +1,4 @@
-# 第2章 路由
+# 第2章 vue-router
 ## 1、浅谈前端路由
 
 ### （1）为什么需要前端路由？
@@ -9,7 +9,7 @@
 
 那就给前端搞个路由吧。
 ### （2）如何实现前端路由？
-#### hash模式
+#### ① hash模式
 HTML的`hash`用于快速定位页面标题，在很久之前就开始支持，这里已经有了前后端分离的思想。
 
 ```html
@@ -28,7 +28,7 @@ hash存在一些缺点：
 hash具有缺点是很正常的，毕竟它的历史使命就不是用来做动态路由的。
 于是有了`history`
 
-#### history模式
+#### ② history模式
 
 `history`改善了`hash`的缺点，和普通`url`显示效果一致，同时可以使用专门的对象在路由间传递数据，功能也更强大。
 但也存在一个明显的缺点，当修改地址栏路径时会向服务器重新请求资源（修改hash不会），所以服务器需要设置对于该请求的处理（一般重新返回单页面即可），在进入该单页面后在前端再响应地址栏的路由部分。
@@ -76,6 +76,10 @@ const router = new VueRouter({
           component: UserPosts
         }
       ]
+    },
+    {
+      path: '*',
+      redirect: ''
     }
   ]
 })
@@ -83,7 +87,7 @@ const router = new VueRouter({
 > 上面用同时用到了`命名路由`、`动态路由`、`嵌套路由`和`命名视图`，后面会一一介绍。
 ### (2) 使用
 
-#### 超链接方式
+#### ① 链接方式
 使用`router-link`静态链接方式。
 
 ```html
@@ -95,17 +99,22 @@ const router = new VueRouter({
 ```html
 <router-link :to="/user/123">User</router-link>
 ```
-#### 编程式
+#### ② 编程式
 直接动态操作`router`对象。
 
 ```js
 this.$router.push({ name: 'user', params: { userId: 123 } })
 ```
+:warning: 注意`params`是属于`path`的一部分，看起来和路由没啥区别，要注意和`query`做区分。就`vue-router`而言：`name` + `params` = `path`; `path` + `query` = `location`;
+- router.push(location, onComplete?, onAbort?)
+- router.replace(location, onComplete?, onAbort?)
+- router.go(n)
+
+> n 是整数，代表前进或后退的步数
 ### (3) 命令路由
 其实前面已经用到了，就是定义路由时起个名字，之后链接或跳转时比较方便。
 ### (4) 动态路由
 动态路由的主要目的是为了把某种模式匹配到的所有路由，全都映射到同个组件。所以尽量不要把它作为路由通信。可以通过`this.$route.params['name']`获取匹配的参数。
-
 
 :warning: 当使用路由参数时，例如从 `/user/foo` 导航到 `/user/bar`，**原来的组件实例会被复用**。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。**不过，这也意味着组件的生命周期钩子不会再被调用**。复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) `$route` 对象：
 
@@ -128,43 +137,32 @@ beforeRouteUpdate(to, from, next) {
 
 ### (5) 嵌套路由
 
-前面已经用到了，就在子路由的视图会占位父视图中的`router-view`标签。
+前面已经用到了嵌套路由。子路由的视图会显示在父视图中的`router-view`标签。
 > 注意子路由的路径写法，写成相对路径即可
 
 ### (6) 命名视图
-
-
-## 3、路由组件传参
-
-### （1）怎么传
-
-#### ① url方式
-
-```js
-this.$router.push('/details/001')
+前面讲的都是在单个页面使用一个`router-view`标签，有时候我们同时需要多个，尽管我是没用过这么奇葩的场景。
+```vue
+<router-view class="view one"></router-view>
+<router-view class="view two" name="a"></router-view>
+<router-view class="view three" name="b"></router-view>
 ```
+最上面的是默认的，相当于省略了`name='default`，之后给`component`选项中分别指定视图即可。
 
-这种传参方式必须配合动态路由来接受，基本不用。
+## 3、路由通信
 
-#### ② params方式 :star:
+### (1) params方式 :star:
+这种最常用，无论是直接拼接path使用`path`还是使用`name`加`params`。
+动态路由占位会首先匹配其中的属性，当匹配不到时，不会在地址栏显示，但传递的参数依然是可获取的，也支持传递复杂对象。
+之后通过`this.$router.params`读取即可。
+所以说`动态路由`和`params传参`并不是耦合的，这点设计比较好。
 
-```js
-this.$router.push({ name: 'details', params: { id: '001' } })
-```
+### (2) query 方式
+前面说过：`path` + `query` = `location`
+通过query传递的内容一定会在地址栏显示出来。
+之后通过`this.$router.query`获取即可。
 
-最常用的方式，注意配置路由时不要忘记`name`参数。
-
-#### ③ query方式
-
-```js
-this.$router.push('/details/001?kind=car')
-this.$router.push({ path: '/details/001', query: { kind: "car" }})
-this.$router.push({ name: 'details', params: { id: '001' }, query: { kind: 'car' }})
-```
-
-`query`的内容类似于`get`请求跳转，会把内容在地址栏中显示出来，基本不用。
-
-#### ④ hash方式
+### (3) hash 方式
 
 ```js
 this.$router.push('/details/001#car')
@@ -172,23 +170,19 @@ this.$router.push({ path: '/details/001', hash: '#car'})
 this.$router.push({ name: 'details', params: { id: '001' }, hash: 'car'})
 ```
 
-获取参数时需要使用`$route.hash.slice(1)`，太垃圾了。不用。
+获取参数时需要使用`$route.hash.slice(1)`，太垃圾了。最好不用。
 
-### （2）怎么接收
-
+### （4）关于如何接收路由传递的参数
 #### ① $router
 
-默认情况下我们通过下面这种方式接收：
+一般情况下我们通过下面这种方式接收：
 
 ```js
 this.$route.params['name']
 ```
 
-> 这样做不好，因为我们写好一个组件后，如果通过这种方式获取路由参数，会造成该组件只能用于路由传参的场景下，如果被用于其他路由没有传指定名称参数的地方会发生错误。即造成了**组件和路由传参功能的耦合**，因为我们也可能想在不传参或传其他参数的场景下使用该组件。这时候我们要用`props`方式接受。
+> 这样有些缺点，就是我们在没有确保来源路由一定给我们传递了什么东西的前提下就开始使用了这个参数。这不太合适。于是我们可以开启`props`，就是把可能传递的参数都挂挂载到`props`选项中，是个解耦的过程。
 
-#### ② props
-
-使用路由props传值需要路由开启该选项，以及启动的模式。
 
 ```js
 const router = new VueRouter({
@@ -206,25 +200,22 @@ const router = new VueRouter({
 props: { newsletterPopup: false }
 ```
 
-除此之外我们还能对传递的参数预先格式化处理，即采用`函数模式`：
+除此之外我们还能对传递的参数预先格式化处理，即采用`函数模式`，此时可以操作整个`route`对象：
 
 ```js
 props: route => ({ query: route.query.q })
 ```
-
-> 这里采用箭头函数。
+> 此时就把`q`这个`query`内容挂载为名为`query`的`prop`。
 
 ## 4、导航守卫
 
-<img src="img/image-20220101185107601.png" alt="image-20220101185107601" style="zoom: 50%;" />
-
-### （1）全局
+### （1）全局守卫
 
 在`router`实例上配置。
 
 #### ① router.beforeEach() :star:
 
-全局前置守卫。
+全局前置守卫，在所有导航守卫中优先级最高。
 
 ```js
 router.beforeEach((to, from, next) => {
@@ -233,31 +224,33 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
+> 确保`next()`一定被调用且仅调用一次。`next(false)`会重回`form`路由。
+>
+> #### ② router.beforeResolve()	
 
-
-<img src="img/image-20220101182447282.png" alt="image-20220101182447282" style="zoom:50%;" />
-
-> 确保`next()`一定被调用且仅调用一次。
-
-#### ② router.beforeResolve()	
-
-全局解析守卫。
-
- `router.beforeResolve` 注册一个全局守卫。这和 `router.beforeEach` 类似，区别是在导航被确认之前，**同时在所有组件内守卫和异步路由组件被解析之后**，解析守卫就被调用。
+ `router.beforeResolve()` 注册一个全局守卫。这和 `router.beforeEach` 类似，区别是在导航被确认之前，**同时在所有组件内守卫和异步路由组件被解析之后**，解析守卫就被调用。
 
 #### ③ router.afterEach()
 
 全局后置钩子。
 
-和守卫不同的是，这些钩子不会接受 `next` 函数也不会改变导航本身。
+和守卫不同，此时导航已经完成，所以这些钩子不会接受 `next` 函数也不会改变导航本身。只是做一些额外的处理工作。
 
-### （2）路由独享
+### （2）路由守卫
 
-`router.beforeEnter(to, from, next)`
+```js
+ {
+      path: '/foo',
+      component: Foo,
+      beforeEnter: (to, from, next) => {
+        // ...
+      }
+    }
+```
 
 这个在路由中配置，相当于对到达该路由时进行更加精细化的配置，这里的`to`没意义。
 
-### （3）组件独享
+### （3）组件守卫
 
 为什么需要组件守卫路由呢？是因为对于动态路由会复用组件实例，组件声明周期不会重新触发。
 
@@ -309,4 +302,39 @@ beforeRouteLeave (to, from, next) {
   }
 }
 ```
+
+![image-20220323233031712](./img/image-20220323233031712.png)
+
+## 5、路由懒加载
+
+```js
+const Foo = () => import('./Foo.vue')
+
+const router = new VueRouter({
+  routes: [{ path: '/foo', component: Foo }]
+})
+```
+此时会把异步的组件打包都独立的chunk中。
+
+通过使用`webpack`提供的`命名chunk`功能，还能指定哪些组件打包到相同的块中：
+```js
+const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+```
+
+## 6、滚动行为
+
+对于单页面应用而言，切换路由并不会改变原来页面的滚动位置。
+```js
+const router = new VueRouter({
+  routes: [...],
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+  }
+})
+```
+实现的原理就是跳转新路由时重置`window.scrollTo`到指定位置，同时`popstate `也会被`hsitory`保存下来，所以要求浏览器必须支持`history.pushState`。
+
+更多相关配置：[scrollBehavior](https://v3.router.vuejs.org/zh/guide/advanced/scroll-behavior.html#%E5%BC%82%E6%AD%A5%E6%BB%9A%E5%8A%A8)
 
