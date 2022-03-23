@@ -29,7 +29,7 @@ module.exports = {
             link: "/topics/ts/",
           },
           {
-            text: "vue.js",
+            text: "Vue.js",
             link: "/topics/vue/",
           },
           {
@@ -77,7 +77,14 @@ module.exports = {
         "iterator",
         "async",
       ],
-      "/topics/vue/": ["", 'test'],
+      "/topics/vue/": [
+        "",
+        'basic',
+        'router',
+        'store',
+        'theory',
+        'cli',
+      ],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
