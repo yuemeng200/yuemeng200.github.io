@@ -126,8 +126,12 @@ mounted(){
 
 ## 4、生命周期
 
+- 初始化阶段：实例初始化执行环境，完成后触发**`beforeCreate`**。之后将`data`注入到响应式系统中，并设置`watch`、`methods`和`computed`等实例选项，完成后触发**`created`**；
+- 模板编译和挂载阶段：首先将模板解析为`render`函数（AST树），完成后触发**`beforeMount`**。（:bell: 注意此时如果有子组件，开始触发子组件实例的生命周期，以此类推，因为父组件依赖子组件，子组件不准备好父组件无法生成虚拟dom）之后通过`h()`函数将实例中的数据上树，此时就生成了`VNode`，即虚拟dom，它是dom结构的一种简化表示，有利于响应式依赖的收集和变更通知，同时也利于后续的`diff`操作。之后将虚拟dom转化为真实dom，即`this.$el`，并取代`el`选项指定的真实dom。完成后触发**`mounted`**。
+- 更新阶段：当状态发生改变，触发**`beforeUpdate`**，通知依赖变更状态，生成新的虚拟dom，对比变更前后的虚拟dom，最小量更新真实dom元素。完成后触发**`updated`**
+- 销毁阶段：当组件销毁时首先触发**`beforeDestory`**，此钩子函数应该进行一些自定义对象清理，之后会自动清理实例选项，并等待子组件摧毁结束，以此类推。全部完成才会触发**`destoryed`**。
 
-![实例声明周期](https://cn.vuejs.org/images/lifecycle.png)
+<img src="https://cn.vuejs.org/images/lifecycle.png" alt="实例声明周期" style="zoom: 50%;" />
 
 ## 5、computed 和 watch
 
