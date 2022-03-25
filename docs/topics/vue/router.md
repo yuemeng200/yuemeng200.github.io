@@ -13,10 +13,11 @@
 HTML的`hash`用于快速定位页面标题，在很久之前就开始支持，这里已经有了前后端分离的思想。
 
 ```html
-<a class="headerlink" href="#design-your-templates" title="永久链接至标题">hash跳转</a>
+<h1 id='your-title'>标题</h1>
+...
+<a class="headerlink" href="#your-title">回到标题</a>
 ```
 
-通过以下地址栏可快速定位：`https://host/page.html#design-your-templates`
 
 浏览器地址栏中hash符号`#`之后的内容只用来匹配当前页面的链接元素的定位，在hash改变时不会向服务器发起请求，且会触发`hashchange`事件，这个事件也会导致浏览器保存历史记录状态。当开发者想要切换页面（dom状态）时，只需要通过`window.location.hash`切换个路由，同时监听这个路由的变化更新dom页面。只要你能维护好`hash`和`虚拟页面`的映射关系，这个方法完全可行地。
 
