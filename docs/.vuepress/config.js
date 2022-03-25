@@ -1,6 +1,6 @@
 module.exports = {
   title: "yuemeng",
-  description: "满地都是六便士，我捡干净之后，抬头看见了月亮。",
+  description: "满地都是六便士，捡干净以后，抬头看见了月亮。",
   head: [
     ["link", { rel: "shortcut icon", href: "/favicon.svg" }],
     ["script", { src: "/scripts/scrollToHash.js" }],
@@ -77,14 +77,7 @@ module.exports = {
         "iterator",
         "async",
       ],
-      "/topics/vue/": [
-        "",
-        'basic',
-        'router',
-        'store',
-        'theory',
-        'cli',
-      ],
+      "/topics/vue/": ["", "basic", "router", "store", "theory", "cli"],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
