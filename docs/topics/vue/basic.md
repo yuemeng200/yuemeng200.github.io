@@ -55,18 +55,19 @@
 :::
 、
 
-
 ### (3) 自定义指令
+
 ```js
 // 注册一个全局自定义指令 `v-focus`
-Vue.directive('focus', {
+Vue.directive("focus", {
   // 当被绑定的元素插入到 DOM 中时……
   inserted: function (el) {
     // 聚焦元素
-    el.focus()
-  }
-})
+    el.focus();
+  },
+});
 ```
+
 除此之外，也能通过`directives`选项定义局部指令。
 
 ## 3、事件
@@ -126,10 +127,10 @@ mounted(){
 
 ## 4、生命周期
 
-- 初始化阶段：实例初始化执行环境，完成后触发**`beforeCreate`**。之后将`data`注入到响应式系统中，并设置`watch`、`methods`和`computed`等实例选项，完成后触发**`created`**；
-- 模板编译和挂载阶段：首先将模板解析为`render`函数（AST树），完成后触发**`beforeMount`**。（:bell: 注意此时如果有子组件，开始触发子组件实例的生命周期，以此类推，因为父组件依赖子组件，子组件不准备好父组件无法生成虚拟dom）之后通过`h()`函数将实例中的数据上树，此时就生成了`VNode`，即虚拟dom，它是dom结构的一种简化表示，有利于响应式依赖的收集和变更通知，同时也利于后续的`diff`操作。之后将虚拟dom转化为真实dom，即`this.$el`，并取代`el`选项指定的真实dom。完成后触发**`mounted`**。
-- 更新阶段：当状态发生改变，触发**`beforeUpdate`**，通知依赖变更状态，生成新的虚拟dom，对比变更前后的虚拟dom，最小量更新真实dom元素。完成后触发**`updated`**
-- 销毁阶段：当组件销毁时首先触发**`beforeDestory`**，此钩子函数应该进行一些自定义对象清理，之后会自动清理实例选项，并等待子组件摧毁结束，以此类推。全部完成才会触发**`destoryed`**。
+- 初始化阶段：实例初始化执行环境，完成后触发`beforeCreate`。之后将`data`注入到响应式系统中，并设置`watch`、`methods`和`computed`等实例选项，完成后触发`created`；
+- 模板编译和挂载阶段：首先将模板解析为`render`函数（AST 树），完成后触发`beforeMount`。（:bell: 注意此时如果有子组件，开始触发子组件实例的生命周期，以此类推，因为父组件依赖子组件，子组件不准备好父组件无法生成虚拟 dom）之后通过`h()`函数将实例中的数据上树，此时就生成了`VNode`，即虚拟 dom，它是 dom 结构的一种简化表示，有利于响应式依赖的收集和变更通知，同时也利于后续的`diff`操作。之后将虚拟 dom 转化为真实 dom，即`this.$el`，并取代`el`选项指定的真实 dom。完成后触发`mounted`。
+- 更新阶段：当状态发生改变，触发`beforeUpdate`，通知依赖变更状态，生成新的虚拟 dom，对比变更前后的虚拟 dom，最小量更新真实 dom 元素。完成后触发`updated`
+- 销毁阶段：当组件销毁时首先触发`beforeDestory`，此钩子函数应该进行一些自定义对象清理，之后会自动清理实例选项，并等待子组件摧毁结束，以此类推。全部完成才会触发`destoryed`。
 
 <img src="https://cn.vuejs.org/images/lifecycle.png" alt="实例声明周期" style="zoom: 50%;" />
 
@@ -215,8 +216,8 @@ requireComponent.keys().forEach((fileName) => {
 #### props 和 $emit
 
 一般情况下，父->子 使用`props`，子->父 使用`$emit`。不同数据类型的传递方式符合函数传参规则。
-> `props`传递的数据不建议在子组件中修改，可以使用`.sync`修饰，此时才能被响应系统检测到。
 
+> `props`传递的数据不建议在子组件中修改，可以使用`.sync`修饰，此时才能被响应系统检测到。
 
 #### 特殊变量
 
@@ -239,8 +240,10 @@ provide: function () {
 // 孩子组件
 inject: ['getMap']
 ```
+
 #### $attrs 和 $listener
-当非`props`被声明在子组件时时，默认情况下这些属性将作为`dom属性`作用到子组件的根元素上，并会替换已有的属性（class和style采取合并策略）。可以开启`inheritAttrs: false`选项阻止这种可能的破坏。此时传递的属性在子组件中可以通过`this.$attrs`获取。
+
+当非`props`被声明在子组件时时，默认情况下这些属性将作为`dom属性`作用到子组件的根元素上，并会替换已有的属性（class 和 style 采取合并策略）。可以开启`inheritAttrs: false`选项阻止这种可能的破坏。此时传递的属性在子组件中可以通过`this.$attrs`获取。
 显然这又是一种组件通信的方式，而且是多层次的，因为子组件还能通过`v-bind:$attrs`再传递给孙子组件。从而实现了从祖先到孩子的数据传递。
 那么从孩子到祖先的通信该怎么实现呢？有个`$listeners`实例属性，其中保存有所有的父组件的监听器。通过在中间组件使用`v-on:$listener`中转祖先组件的监听器，就能在任意孩子组件中使用`$emit`直接触发。
 可见这种方式是对多层级的`props`、`$emit`通信模式的简化，从效果上来看，实现的是**祖先元素和所有子孙元素间**的通信。
@@ -299,32 +302,35 @@ inject: ['getMap']
 ```
 
 ### (5) 递归组件
+
 实现起来并不难，组件自己调用自己即可，注意这种情况下组件的`name`不可省略。标签名不能用`驼峰命名`而应该用`连接线`，标签属性要用`纯小写`，据说这是`W3C`的规范，但试了一下并没有影响。
 
 ### (6) 混入
+
 混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。一个混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被“混合”进入该组件本身的选项。
 
 ```js
 // 定义一个混入对象
 var myMixin = {
   created: function () {
-    this.hello()
+    this.hello();
   },
   methods: {
     hello: function () {
-      console.log('hello from mixin!')
-    }
-  }
-}
+      console.log("hello from mixin!");
+    },
+  },
+};
 
 // 定义一个使用混入对象的组件
 var Component = Vue.extend({
-  mixins: [myMixin]
-})
+  mixins: [myMixin],
+});
 
-var component = new Component() // => "hello from mixin!"
+var component = new Component(); // => "hello from mixin!"
 ```
-> `Vue.extend`用来定义Vue子类，声明的组件对象需要使用`el`选项或者`$mount`挂载到dom上使用，只是一种动态生成组件的方式，很多`message`组件就是这样生成的。
+
+> `Vue.extend`用来定义 Vue 子类，声明的组件对象需要使用`el`选项或者`$mount`挂载到 dom 上使用，只是一种动态生成组件的方式，很多`message`组件就是这样生成的。
 > 同名钩子函数将合并为一个数组，因此都将被调用。另外，混入对象的钩子将在组件自身钩子之前调用。
 
 除此之外还能使用`Vue.mixin()`全局混入。
@@ -362,14 +368,14 @@ export default {
 ```
 
 ## 7、过渡 & 动画
-这个相当于`vue`给组件使用css动效提供了一种更简单、强大的方式。这东西还挺复杂的。
+
+这个相当于`vue`给组件使用 css 动效提供了一种更简单、强大的方式。这东西还挺复杂的。
 [过渡](https://cn.vuejs.org/v2/guide/transitions.html#%E6%A6%82%E8%BF%B0)
 
-
-
-
 ## 8、补充
+
 ### (1) 开发插件
+
 ```js
 MyPlugin.install = function (Vue, options) {
   // 1. 添加全局方法或 property
@@ -399,7 +405,9 @@ MyPlugin.install = function (Vue, options) {
   }
 }
 ```
+
 `Vue.use()`会自动执行插件对象的`install`方法。
+
 ## 问题
 
 ### (1) 为什么 data 非要是函数不可？
