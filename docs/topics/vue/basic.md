@@ -40,22 +40,47 @@
 - `v-for`的标准格式：` <li v-for="(item, index) in items" :key="item.key"></li>`，也能遍历对象。
 - 我们可能会需要有选择地使用`v-for`内容，不要把`v-if`与之写在同一元素上，使用`template`。
 - `v-on`给调用方法传递特殊变量`$event`，访问原始的`dom事件`。
-- `v-model`修饰符：
 
-  - `.lazy`：使得`视图->状态`的同步在`change`时而不是`input`时触发。
+### (3) 修饰符
 
-  - `.number`：使得输入转化为数值来同步。
+#### ① 表单修饰符
 
-  - `.trim`：使得自动过滤输入的首尾空白字符。
+`v-model`修饰符：
 
-:::tip 补充
+- `.lazy`：使得`视图->状态`的同步在`change`时而不是`input`时触发。
 
-  <img src="./img/image-20220325123311609.png" alt="image-20220325123311609" style="zoom:80%;" />
+- `.number`：使得输入转化为数值来同步。
 
-:::
-、
+- `.trim`：使得自动过滤输入的首尾空白字符。
 
-### (3) 自定义指令
+#### ② 事件修饰符
+
+- stop：阻止事件冒泡。
+- prevent：阻止默认行为。
+- self：只在 event.target 是自身时触发。
+  > 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 v-on:click.prevent.self 会阻止所有的点击，而 v-on:click.self.prevent 只会阻止对元素自身的点击
+- once：事件只触发一次。
+- capture：事件响应从冒泡改为捕获。
+- passtive：相当于对`onscroll`事件节流处理。
+  > 节流（）指在事件触发时重置倒计时，倒计时结束后响应。
+  > 防抖（debounce）指在响应后设置倒计时，倒计时结束前不再响应，且事件触发重置倒计时。
+- native：监听组件原生事件，默认监听自定义事件。
+
+#### ③ 按键事件修饰符
+
+修饰`click`鼠标事件：
+
+- left
+- right
+- middle
+  修饰`key`按键事件：
+- keyup.enter
+- keydown.esc
+- ...
+
+####
+
+### (4) 自定义指令
 
 ```js
 // 注册一个全局自定义指令 `v-focus`
@@ -215,9 +240,16 @@ requireComponent.keys().forEach((fileName) => {
 
 #### props 和 $emit
 
-一般情况下，父->子 使用`props`，子->父 使用`$emit`。不同数据类型的传递方式符合函数传参规则。
+一般情况下，父->子 使用`props`，子->父 使用`$emit`和`$on`。不同数据类型的传递方式符合函数传参规则。
 
-> `props`传递的数据不建议在子组件中修改，可以使用`.sync`修饰，此时才能被响应系统检测到。
+`props`传递的数据不建议在子组件中修改，可以使用`.sync`修饰，其相当于`bind`、`on`和`emit`流程的语法糖：
+
+```html
+//父组件
+<comp :myMessage.sync="bar"></comp>
+//子组件 this.$emit('update:myMessage',params);
+```
+> 注意这种时候bind后面不能写表达式，触发事件严格按照`update:eventName`的格式。
 
 #### 特殊变量
 
@@ -247,6 +279,23 @@ inject: ['getMap']
 显然这又是一种组件通信的方式，而且是多层次的，因为子组件还能通过`v-bind:$attrs`再传递给孙子组件。从而实现了从祖先到孩子的数据传递。
 那么从孩子到祖先的通信该怎么实现呢？有个`$listeners`实例属性，其中保存有所有的父组件的监听器。通过在中间组件使用`v-on:$listener`中转祖先组件的监听器，就能在任意孩子组件中使用`$emit`直接触发。
 可见这种方式是对多层级的`props`、`$emit`通信模式的简化，从效果上来看，实现的是**祖先元素和所有子孙元素间**的通信。
+
+#### EventBus
+
+实质上 EventBus 是一个不具备 DOM 的组件，它具有的仅仅只是它实例方法。
+
+```js
+// 全局注册
+Vue.prototype.$EventBus = new Vue();
+
+// 发送
+this.$EventBus.$emit("onMsg", data);
+
+// 接收
+this.$EventBus.$on("onMsg", () => {});
+```
+
+> 之所以可以这样用的原因是因为`$emit`是在调用实例身上触发事件。
 
 ### (3) 插槽
 
@@ -295,11 +344,13 @@ inject: ['getMap']
 > 同理还有`v-show`的语法糖：
 
 ```html
-<!-- 失活的组件状态将会被缓存！-->
+<!-- 此时失活的组件状态将会被缓存！-->
 <keep-alive>
   <component v-bind:is="currentTabComponent"></component>
 </keep-alive>
 ```
+
+使用`keep-alive`后，内置组件会多出来两个生命周期：`activate`和`deactivate`。缓存的组件实例会被放在全局的`this.cache`中。
 
 ### (5) 递归组件
 

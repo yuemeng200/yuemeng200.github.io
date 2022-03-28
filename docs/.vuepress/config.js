@@ -77,7 +77,7 @@ module.exports = {
         "iterator",
         "async",
       ],
-      "/topics/vue/": ["", "basic", "router", "store", "theory", "cli"],
+      "/topics/vue/": ["", "basic", "router", "store", "theory", "cli", 'tools', 'ssr'],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
