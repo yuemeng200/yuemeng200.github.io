@@ -86,6 +86,7 @@ module.exports = {
         "cli",
         "tools",
         "other",
+        "vue3",
       ],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
