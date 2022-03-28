@@ -3,6 +3,7 @@ home: true
 actionText: Enter
 actionLink: /topics/js/
 ---
+
 <div class="features">
   <div class="feature" style="max-width: 40%;">
     <h2>To be a front-end programmer</h2>

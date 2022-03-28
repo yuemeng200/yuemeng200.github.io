@@ -1,6 +1,6 @@
 module.exports = {
   title: "yuemeng",
-  description: "满地都是六便士，捡干净以后，抬头看见了月亮。",
+  description: "Truelove always keeps one upward.",
   head: [
     ["link", { rel: "shortcut icon", href: "/favicon.svg" }],
     ["script", { src: "/scripts/scrollToHash.js" }],
