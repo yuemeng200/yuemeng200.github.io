@@ -249,7 +249,8 @@ requireComponent.keys().forEach((fileName) => {
 <comp :myMessage.sync="bar"></comp>
 //子组件 this.$emit('update:myMessage',params);
 ```
-> 注意这种时候bind后面不能写表达式，触发事件严格按照`update:eventName`的格式。
+
+> 注意这种时候 bind 后面不能写表达式，触发事件严格按照`update:eventName`的格式。
 
 #### 特殊变量
 
@@ -331,6 +332,14 @@ this.$EventBus.$on("onMsg", () => {});
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
   </template>
+</current-user>
+```
+
+也可以使用更简洁的解构和重命名方式：
+
+```html
+<current-user>
+  <template v-slot:default="{user: person}"> {{ person.firstName }} </template>
 </current-user>
 ```
 
@@ -420,8 +429,34 @@ export default {
 
 ## 7、过渡 & 动画
 
-这个相当于`vue`给组件使用 css 动效提供了一种更简单、强大的方式。这东西还挺复杂的。
-[过渡](https://cn.vuejs.org/v2/guide/transitions.html#%E6%A6%82%E8%BF%B0)
+vue 提供了`transition`封装组件，这个相当于`vue`给组件使用 css 动效提供了一种更简单、强大的方式。
+触发时机：
+
+- v-if
+- v-show
+- 动态组件
+- 组件根节点
+
+有一个常用的场景是`router-view`过渡使用，在 `vue2` 可以这样写：
+
+```html
+<transition :name="transitionName">
+  <router-view class="router-view" :key="$route.name"> </router-view>
+</transition>
+```
+
+注意要带上`key`，不然可能会失效，然后通过路由守卫可以动态地改变`transition`的`name`，达到多样化的过渡效果。
+但在`vue3`这种方式不再支持了，要采用下面这种写法：
+
+```html
+<router-view class="router-view" v-slot="{ Component }">
+  <transition :name="transitionName">
+    <component :is="Component" />
+  </transition>
+</router-view>
+```
+
+其实就是把从检测`router-view`移动到检测内部组件了，所以要把内部组件暴露到`component`身上去。
 
 ## 8、补充
 
