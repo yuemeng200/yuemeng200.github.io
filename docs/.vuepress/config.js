@@ -105,6 +105,7 @@ module.exports = {
         "tools",
         "other",
         "vue3",
+        'vite'
       ],
       "/cs/cp": ["", "basic"],
       "/topics/broswer/": [""],
