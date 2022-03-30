@@ -87,6 +87,7 @@ module.exports = {
         "tools",
         "other",
         "vue3",
+        'vite'
       ],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
