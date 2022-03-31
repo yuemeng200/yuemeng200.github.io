@@ -8,7 +8,7 @@
 
 设置及访问对象属性有两种书写方式，分别为`object.property`和`object["perperty"]`。
 
-每个属性还有三个`属性特性`，用来限制能对该属性做**什么**：
+每个属性还有三个`属性特性`（元属性），用来限制能对该属性做**什么**：
 
 - writable（可写）
 
@@ -103,6 +103,8 @@ let o1 = Object.create(Object.prototype)
 - #### Object.keys()
 
   返回可枚举自有属性名数组。
+
+  > 最常用。
 
 - #### Object.getOwnPropertyNames()
 
@@ -256,3 +258,20 @@ let o = {
   Object.setPrototypeOf(obj, prototype)
   ```
 
+## 7、其他对象
+
+### （1）Date
+
+`Date()`返回当前时间的字符串。
+
+`new Date()`返回时间对象，但其表现还是字符串，具有很多实例方法。
+
+### （2）JSON对象
+
+JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式。注意json本身就是个字符串，只是字符串按照一定格式，容易被解析。
+
+它有两个静态方法：`JSON.stringify()`和`JSON.parse()`。
+
+如果对象的属性是`undefined`、函数或 XML 对象，该属性会被`JSON.stringify`过滤。
+
+如果参数对象有自定义的`toJSON`方法，那么`JSON.stringify`会使用这个方法的返回值作为参数，而忽略原对象的其他属性。
