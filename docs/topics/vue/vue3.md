@@ -403,11 +403,7 @@ watch(
 
 ### (1) 全局 API 更改
 
-<<<<<<< HEAD
-
-> # 注意`destory`已经改为`unmounted`
->
-> > > > > > > 39a5c4c453f87280f197c8010d4b03d04830874e
+> 注意`destory`已经改为`unmounted`
 
 ![image-20220330164837267](./img/image-20220330164837267.png)
 
