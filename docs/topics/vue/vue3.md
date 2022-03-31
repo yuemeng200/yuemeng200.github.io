@@ -127,7 +127,8 @@ export default {
 setup 中也能调用声明周期钩子：
 
 > 因为 setup 是围绕 beforeCreate 和 created 生命周期钩子运行的，所以不需要显式地定义它们。换句话说，在这些钩子中编写的任何代码都应该直接在 setup 函数中编写。
-> ![image-20220330114652850](./img/image-20220330114652850.png)
+
+![image-20220330114652850](./img/image-20220330114652850.png)
 
 ### (5) provide 和 inject
 
@@ -313,15 +314,7 @@ watch(
   },
 ```
 
-### (4) v-model 参数
-
-vue2 中我们使用`.sync`，来修饰`props`用于双向绑定，vue3 改为`v-model`。
-
-```html
-<my-component v-model:title="bookTitle"></my-component>
-```
-
-### (5) <script setup>
+### (4) <script setup>
 
 组合式 API 语法糖。此时整个`m`和`vm`层，都采用命令式，而不是声明式，所以之前所有组件选项声明都不在可用，于是恰好在此时提供了一些更简洁的方式。
 
@@ -333,7 +326,7 @@ vue2 中我们使用`.sync`，来修饰`props`用于双向绑定，vue3 改为`v
 - 顶层使用 await 自动开启 async 的 setup
 - 更好地支持`ts`
 
-### (6) style 相关
+### (5) style 相关
 
 先看看`scoped`的原理？
 `scoped`其实是利用`PostCSS`，给当前模板中所有元素添加一个`data-v-xxx`属性，该属性是一个作用域标识，确保不同组件不相同。之后对于所有选择器添加属性选择`[data-v-xxx]`。
@@ -395,11 +388,29 @@ vue2 中我们使用`.sync`，来修饰`props`用于双向绑定，vue3 改为`v
   </template>
 </router-view>
 ```
-> `transition`和`keep-alive`的层级关系有要求吗？
 
+> `transition`和`keep-alive`的层级关系有要求吗？
 
 ## 4、非兼容更改
 
-### (1) 全局API更改
+### (1) 全局 API 更改
+
+> 注意`destory`已经改为`unmounted`
 
 ![image-20220330164837267](./img/image-20220330164837267.png)
+
+### (2) v-model 替换.sync
+
+vue2 中我们使用`.sync`，来修饰`props`用于双向绑定，vue3 改为`v-model`。
+
+```html
+<my-component v-model:title="bookTitle"></my-component>
+```
+
+### (3) v-if 和 v-for 优先级
+
+两者作用于同一个元素上时，v-if 会拥有比 v-for 更高的优先级。vue2 是 v-for 优先。
+
+### (4) .native
+
+`v-on` 的 `.native` 修饰符已被移除。
