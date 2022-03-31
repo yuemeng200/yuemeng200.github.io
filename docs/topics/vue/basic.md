@@ -273,7 +273,7 @@ provide: function () {
 // 孩子组件
 inject: ['getMap']
 ```
-
+> 不支持响应式
 #### $attrs 和 $listener
 
 当非`props`被声明在子组件时时，默认情况下这些属性将作为`dom属性`作用到子组件的根元素上，并会替换已有的属性（class 和 style 采取合并策略）。可以开启`inheritAttrs: false`选项阻止这种可能的破坏。此时传递的属性在子组件中可以通过`this.$attrs`获取。

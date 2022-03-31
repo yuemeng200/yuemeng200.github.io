@@ -395,12 +395,19 @@ vue2 中我们使用`.sync`，来修饰`props`用于双向绑定，vue3 改为`v
   </template>
 </router-view>
 ```
+
 > `transition`和`keep-alive`的层级关系有要求吗？
 
+### (8) tree-shaking
+
+`Tree shaking` 是一种通过清除多余代码方式来优化项目打包体积的技术，专业术语叫 `Dead code elimination`。
+`Tree shaking`无非就是做了两件事：
+
+- 编译阶段利用 ES6 Module 判断哪些模块已经加载
+- 判断那些模块和变量未被使用或者引用，进而删除对应代码
 
 ## 4、非兼容更改
 
-### (1) 全局API更改
+### (1) 全局 API 更改
 
 ![image-20220330164837267](./img/image-20220330164837267.png)
-
