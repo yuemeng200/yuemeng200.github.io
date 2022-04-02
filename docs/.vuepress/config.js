@@ -57,6 +57,24 @@ module.exports = {
           },
         ],
       },
+      {
+        text: "计算机科学",
+        link: "/cs/",
+        items: [
+          {
+            text: "编译原理",
+            link: "/cs/cp/",
+          },
+          {
+            text: "操作系统",
+            link: "/cs/os/",
+          },
+          {
+            text: "计算机网络",
+            link: "/cs/cn",
+          },
+        ],
+      },
       { text: "工具", link: "/tools/" },
       {
         text: "随想",
@@ -87,8 +105,9 @@ module.exports = {
         "tools",
         "other",
         "vue3",
-        'vite'
+        "vite",
       ],
+      "/cs/cp": ["", "cp"],
       "/topics/broswer/": [""],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
