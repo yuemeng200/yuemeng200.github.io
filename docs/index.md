@@ -9,7 +9,7 @@ actionLink: /topics/js/
     <h2>To be a front-end programmer</h2>
       <p>
         <span>专题：</span>
-        <a href="topics/js">Javascript</a>、CSS、Typescript、<a href="topics/vue">Vue.js</a>、浏览器、Electron、微信小程序 ...
+        <a href="topics/js">Javascript</a>、CSS、Typescript、<a href="topics/vue">Vue.js</a>、<a href="topics/broswer">浏览器</a>、Electron、微信小程序 ...
       </p>
       <p>
         <span>工具：</span>
