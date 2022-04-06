@@ -9,6 +9,7 @@ module.exports = {
     logo: "/favicon.svg",
     sidebarDepth: 3,
     smoothScroll: true,
+    lastUpdated: "上次更新", 
     // INFO 导航栏设置
     nav: [
       { text: "主页", link: "/" },

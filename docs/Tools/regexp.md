@@ -23,14 +23,12 @@ sidebarDepth: 3
 下面直接给出我所想到的一种正则模式：**`^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z\s]).{8,}$`**。
 现在看不懂没关系，毕竟我也刚学会。
 
-### (1) 在 JS 中使用
-
 顺便先说下有了正则表达式应该怎么去使用，正则表达式本身在各种语言是通用的，只是调用的`api`略有差异。
 在 JS 中直接通过字面量（`/我是正则/`）或者使用构造函数（`new RegExp("我是正则")`）两种方式定义都可以。
 
 ![image-20220320223552324](./img/image-20220320223552324.png)
 
-> 其中`exex`和`test`是`RegExp`对象的方法，其余是`string`的方法。
+> 其中`exex`和`test`是`RegExp`对象的方法，其余是`String`的方法。在后面会详细介绍这些方法。
 
 比如上面验证密码的可以封装到一个函数里：
 
@@ -138,15 +136,59 @@ console.log(res); // ['123a', '456b']
 | ------ | ---------------------- |
 | i | ignore: 忽略大小写 |
 | g | global: 全局匹配 |
+|y| sticky: 粘性匹配|
 | m | mutipal-line: 多行匹配 |
 | s | 开启`.`包含换行符 |
 
-## 7、经典案例
+> `g`和`y`修饰的正则都是有状态的（有`lastIndex`属性），区别在于`g`的表现总是一次匹配全部，`y`每次只匹配一个。
+
+## 5、在 Javascript 中使用
+
+### RegExp.prototype.test()
+
+test() 方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配。返回 true 或 false。
+如果正则表达式设置了全局标志，test() 的执行会改变正则表达式 lastIndex 属性。连续的执行 test()方法，后续的执行将会从 lastIndex 处开始匹配字符串（初始为 0）。
+
+### RegExp.prototype.exec()
+
+exec() 方法在一个指定字符串中执行一个搜索匹配。返回一个结果数组或 null。
+结果数组`[0]`是全部匹配的结果（不区分是否捕获），`[1, n]`为所有捕获分组。除此之外数组还有额外属性`index`和`input`代表当前匹配起始位置和原始输入。
+
+> 可以使用`(?<group-name>content)`来命名捕获。
+> 对于全局捕获，每次执行会更新正则匹配状态。
+
+### String.prototype.search()
+
+类似于`RegExp.prototype.test()`，如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引;否则，返回 -1。
+
+### String.prototype.match()
+
+和`RegExp.prototype.exec()`表现一致，但在`g`时不同，这个会直接输出所有匹配结果的列表，但无法输出任何捕获的相关信息。
+
+### String.prototype.matchAll()
+
+matchAll() 方法返回一个包含所有匹配正则表达式的结果及分组捕获组的迭代器。通过解构迭代器，可以达到数组效果，很好用。
+> 除此之外，还有`splot()`和`replace`方法可以使用正则表达式，不再赘述。
+
+```js
+const regexp = /t(e)(st(\d?))/g;
+const str = "test1test2";
+
+const array = [...str.matchAll(regexp)];
+
+console.log(array[0]);
+// expected output: Array ["test1", "e", "st1", "1"]
+
+console.log(array[1]);
+// expected output: Array ["test2", "e", "st2", "2"]
+```
+
+## 6、经典案例
 
 - **电子邮箱**：`^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$`
 - **网址**：`^(((http|https|ftp):\/\/)?([[a-zA-Z0-9]\-\.])+(\.)([[a-zA-Z0-9]]){2,4}([[a-zA-Z0-9]\/+=%&_\.~?\-]*))*$`
 
-## 6、相关资源
+## 7、相关资源
 
 - [regex101 在线测试工具](https://regex101.com/)
 - [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
