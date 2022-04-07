@@ -1,4 +1,4 @@
-# 第 2 章 HTTP缓存
+# 第 2 章 HTTP 缓存
 
 ## 1、缓存
 
@@ -12,9 +12,7 @@
 
 <img src="./img/HTTPStaleness.png" alt="Show how a proxy cache acts when a doc is not cache, in the cache and fresh, in the cache and stale." style="zoom: 80%;" />
 
-
-
-### (1)  无缓存阶段
+### (1) 无缓存阶段
 
 首次请求资源无法命中缓存，返回请求的头部字段`Cache-Control`描述了当前资源的缓存策略，具有以下指令：
 
