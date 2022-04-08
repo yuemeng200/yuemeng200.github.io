@@ -109,7 +109,7 @@ module.exports = {
         "vite",
       ],
       "/topics/broswer/": ["", "cross-origin", "cache", "security"],
-      "/topics/css": ["", 'basic', 'display'],
+      "/topics/css/": ["", "basic", "display"],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
