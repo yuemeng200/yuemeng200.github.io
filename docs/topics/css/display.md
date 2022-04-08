@@ -33,15 +33,15 @@
 
 <img src="./img/image-20211231223323877.png" alt="image-20211231223323877" style="zoom: 50%;" />
 
-## 2、flex 布局
+## 2、flex 布局 :star:
 
 弹性盒子是一种用于按行或按列布局元素的`一维`布局方法 。
 
-> 可以通过这个小游戏[Flexbox Froggy - A game for learning CSS flexbox](http://flexboxfroggy.com/)学习flex的属性。
+> 可以通过这个小游戏[Flexbox Froggy - A game for learning CSS flexbox](http://flexboxfroggy.com/)学习 flex 的属性。
 
 ![flex_terms.png](./img/flex_terms.png)
 
-### （1）flex容器
+### （1）flex 容器
 
 `display: flex;`
 
