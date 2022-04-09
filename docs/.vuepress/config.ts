@@ -1,4 +1,5 @@
-module.exports = {
+import { defineConfig } from 'vuepress/config'
+export default defineConfig({
   title: "yuemeng",
   description: "Truelove always keeps one upward.",
   head: [
@@ -115,4 +116,4 @@ module.exports = {
       "/thoughts/": [""],
     },
   },
-};
+})

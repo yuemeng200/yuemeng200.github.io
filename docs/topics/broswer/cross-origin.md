@@ -51,6 +51,7 @@
 JSONP 的本质即`<script>`标签请求（只支持 get），只是被封装成了函数，对于获取的响应直接作为脚本执行。JSONP 的优势在于支持老式浏览器，以及可以向不支持 CORS 的网站请求数据，只是功能太弱。
 实现参考：
 JSONP 函数根据传入的 url 和参数构造 GET 请求，同时确保后端知道需要返回的回调的名字（后端会封装个函数调用的字符串给前端）。
+:::details JSONP 实现
 
 ```js
 function JSONP({ url, params, callbackKey, callback }) {
@@ -79,6 +80,8 @@ JSONP({
   },
 });
 ```
+
+:::
 
 ## 4、反向代理
 
