@@ -9,7 +9,7 @@ actionLink: /topics/js/
     <h2>To be a front-end programmer</h2>
       <p>
         <span>专题：</span>
-        <a href="topics/js">Javascript</a>、CSS、Typescript、<a href="topics/vue">Vue.js</a>、<a href="topics/broswer">浏览器</a>、Electron、微信小程序 ...
+        <a href="topics/js">Javascript</a>、<a href='topices/css'>CSS</a>、Typescript、<a href="topics/vue">Vue.js</a>、<a href="topics/broswer">浏览器</a>、Electron、微信小程序 ...
       </p>
       <p>
         <span>工具：</span>
@@ -24,7 +24,7 @@ actionLink: /topics/js/
     </p>
     <p>
       <span>专题：</sapn>
-      Node.js、Mysql、MongoDB、Neo4j、Django、SpringBoot、Nest.js...
+      Node.js、<a href="others/rust">Rust</a>、Mysql、MongoDB、Neo4j、Django、SpringBoot、Nest.js...
     </p>
   </div>
 </div>

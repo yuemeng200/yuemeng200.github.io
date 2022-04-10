@@ -50,6 +50,10 @@ export default defineConfig({
             link: "/others/node/",
           },
           {
+            text: 'rust',
+            link: '/others/rust/'
+          },
+          {
             text: "Electron",
             link: "/others/electron/",
           },
@@ -111,6 +115,7 @@ export default defineConfig({
       ],
       "/topics/broswer/": ["", "cross-origin", "cache", "security"],
       "/topics/css/": ["", "basic", "display"],
+      '/others/rust/': ['', 'basic'],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
