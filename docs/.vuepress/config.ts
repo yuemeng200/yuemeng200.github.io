@@ -40,7 +40,19 @@ export default defineConfig({
           },
         ],
       },
-      { text: "算法", link: "/algorithm/" },
+      {
+        text: "算法", link: "/algorithm/",
+        items: [
+          {
+            text: '题解',
+            link: '/algorithm/leetcode/'
+          },
+          {
+            text: '总结',
+            link: '/algorithm/summary/'
+          }
+        ]
+      },
       {
         text: "其他专题",
         link: "/others/",
@@ -115,7 +127,8 @@ export default defineConfig({
       ],
       "/topics/broswer/": ["", "cross-origin", "cache", "security"],
       "/topics/css/": ["", "basic", "display"],
-      '/others/rust/': ['', 'basic'],
+      '/others/rust/': ['', 'basic', 'datatype', 'owners-ship'],
+      '/algorithm/leetcode/': ['', 'linked-list', 'array', 'iteration', 'tree'],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
