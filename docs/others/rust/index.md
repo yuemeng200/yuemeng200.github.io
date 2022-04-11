@@ -1,4 +1,4 @@
-# 介绍
+# Rust
 
 ## 1、快速上手
 
@@ -35,7 +35,7 @@ rustup toolchain install stable-x86_64-pc-windows-gnu
 
 ### 语法初体验
 
-通过下面一个猜一猜小游戏感受一下Rust的语法：
+通过下面一个猜一猜小游戏感受一下 Rust 的语法：
 
 :::details 猜一猜小游戏
 
@@ -48,10 +48,10 @@ use std::io;
 // 主函数
 fn main() {
     println!("Guess the number!");
-	
+
     // 获取随机整数
     let secret_number = rand::thread_rng().gen_range(1..101);
-	
+
     // 进入类似于do...while的循环体
     loop {
         println!("Please input your guess.");
@@ -86,4 +86,3 @@ fn main() {
 ```
 
 :::
-
