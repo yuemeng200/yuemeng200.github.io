@@ -20,45 +20,6 @@ var mergeTwoLists = function (list1, list2) {
 };
 ```
 
-## [206] 反转链表
-
-### 递归解法
-
-对于任一节点，只需要考虑把它的 next 指向它的前一个元素，其他的不用它管。于是递归函数需要传递的是当前节点以及它的 next 应该指向的节点。这个递归本质上是个尾递归，不算难理解。递归就不应该想太多。
-考虑好以下三点直接开写：
-
-- 出口是什么？
-- 每一次递归应该处理什么？
-- 每次递归需要什么？
-
-```js
-var reverseList = function (head, p = null) {
-  if (!head) return head;
-  const next = head.next;
-  head.next = p;
-  return next ? reverseList(next, head) : head;
-};
-```
-
-### 双指针解法
-
-所有链表问题都能用指针来解，且理解起来比递归更直观。
-不停地换指针，处理好边界条件即可。
-
-```js
-var reverseList = function (head) {
-  let cur = head;
-  let pre = null;
-  while (cur) {
-    let next = cur.next;
-    cur.nextt = pre;
-    pre = cur;
-    cur = next;
-  }
-  return pre;
-};
-```
-
 ## [141] 环形链表
 
 ### 递归标记法
@@ -111,3 +72,64 @@ var hasCycle = function (head) {
 但是测试后发现这个效率很低。原因在于 js 的 Map 不是通过 hash 实现的，而是两个分别保存键和值的数组，每次搜索都要遍历整个数组，第一次见这么鸡肋的 api。
 
 > js 没有实现`hashMap`...
+
+## [160] 相交链表
+
+当你走到终点时，开始走她走过的路，
+当她走到终点时，开始走你走过的路，
+若是有缘，你们一定会相遇。
+
+```js
+var getIntersectionNode = function (headA, headB) {
+  if (!headA || !headB) {
+    return null;
+  }
+
+  let a = headA,
+    b = headB;
+  while (a != b) {
+    a = a == null ? headB : a.next;
+    b = b == null ? headA : b.next;
+  }
+  return a;
+};
+```
+
+## [206] 反转链表
+
+### 递归解法
+
+对于任一节点，只需要考虑把它的 next 指向它的前一个元素，其他的不用它管。于是递归函数需要传递的是当前节点以及它的 next 应该指向的节点。这个递归本质上是个尾递归，不算难理解。递归就不应该想太多。
+考虑好以下三点直接开写：
+
+- 出口是什么？
+- 每一次递归应该处理什么？
+- 每次递归需要什么？
+
+```js
+var reverseList = function (head, p = null) {
+  if (!head) return head;
+  const next = head.next;
+  head.next = p;
+  return next ? reverseList(next, head) : head;
+};
+```
+
+### 双指针解法
+
+所有链表问题都能用指针来解，且理解起来比递归更直观。
+不停地换指针，处理好边界条件即可。
+
+```js
+var reverseList = function (head) {
+  let cur = head;
+  let pre = null;
+  while (cur) {
+    let next = cur.next;
+    cur.nextt = pre;
+    pre = cur;
+    cur = next;
+  }
+  return pre;
+};
+```
