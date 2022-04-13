@@ -263,13 +263,13 @@ let o = {
 
 ## 7、其他对象
 
-### （1）Date
+### Date
 
 `Date()`返回当前时间的字符串。
 
 `new Date()`返回时间对象，但其表现还是字符串，具有很多实例方法。
 
-### （2）JSON 对象
+### JSON
 
 JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式。注意 json 本身就是个字符串，只是字符串按照一定格式，容易被解析。
 
@@ -279,7 +279,57 @@ JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换
 
 如果参数对象有自定义的`toJSON`方法，那么`JSON.stringify`会使用这个方法的返回值作为参数，而忽略原对象的其他属性。
 
+### Map
+
+Map 对象是`键值对`的集合，但有自己的特性：
+
+- 键可为任意对象，而不仅仅是字符串或符号，天然的`hashMap`
+- 可以记住插入顺序迭代输出
+
+方法和属性：
+
+- set(key, value)
+- get(key)
+- delete(key)
+- keys()
+- entries()
+- size
+  > Map 也是可迭代类型，使用`for...of`和`forEach`进行遍历。
+
+Map 还能和数组相互转化：
+
+```js
+let kvArray = [
+  ["key1", "value1"],
+  ["key2", "value2"],
+];
+
+let myMap = new Map(kvArray);
+```
+
+### WeakMap
+
+- key 只能为对象
+- key 为弱引用，不可枚举（利于垃圾回收）
+
+> 实际场景下，当一个对象不再被强引用（refer=null 时），会自动垃圾回收，但是 Map 会始终强引用着它所依赖的键（除非 delete 掉或者销毁整个 Map），WeakMap 是弱引用。
+
+### Set
+
+Set 对象是`值`的集合。
+
+- 元素唯一性，用于数组去重
+- 可以记住插入顺序迭代输出
+
+方法和属性：
+
+- add(value)
+- has(value)
+- delete(value)
+- size
+
 ## 8、解构和拓展
+
 对象不是可迭代对象，不能被`...`解构，但可以用来收集属性，同名属性会通过`{}`自动收集。
 
 ```js

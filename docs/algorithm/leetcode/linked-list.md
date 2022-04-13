@@ -2,7 +2,7 @@
 
 > 不用`递归`和`双指针`你就输了。
 
-## 21 合并两个有序链表
+## [21] 合并两个有序链表
 
 这是个头递归问题，因为每次比较后得到的较小的那个节点并不知道该指向谁，即当前递归的操作本身依赖于下次递归执行的结果。当然不使用递归也能解决，自己去构造新的链表出来。当你觉得问题简单，但操作起来比较棘手时，很可能递归就是最好的方案。
 
@@ -20,7 +20,82 @@ var mergeTwoLists = function (list1, list2) {
 };
 ```
 
-## 206 反转链表
+## [141] 环形链表
+
+### 递归标记法
+
+```js
+var hasCycle = function (head) {
+  if (head == null || head.next == null) return false;
+  if (head.val === null) return true;
+  head.val = null;
+  return hasCycle(head.next);
+};
+```
+
+十分简介，但坏处时把链表的数据都给毁掉了，或者会引入污染属性。
+
+### 快慢指针法
+
+快指针走两步，慢指针走一步，有环必然相遇。
+
+```js
+var hasCycle = function (head) {
+  let slow = head,
+    fast = head;
+  while (slow != null && fast != null && fast.next != null) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow == fast) return true;
+  }
+  return false;
+};
+```
+
+### Map 法
+
+js 的 Map 本身就有 hash 的用法：
+
+```js
+var hasCycle = function (head) {
+  let p = head,
+    map = new Map();
+  while (p && p.next) {
+    if (map.get(p)) return true;
+    map.set(p, true);
+    p = p.next;
+  }
+  return false;
+};
+```
+
+但是测试后发现这个效率很低。原因在于 js 的 Map 不是通过 hash 实现的，而是两个分别保存键和值的数组，每次搜索都要遍历整个数组，第一次见这么鸡肋的 api。
+
+> js 没有实现`hashMap`...
+
+## [160] 相交链表
+
+当你走到终点时，开始走她走过的路，
+当她走到终点时，开始走你走过的路，
+若是有缘，你们一定会相遇。
+
+```js
+var getIntersectionNode = function (headA, headB) {
+  if (!headA || !headB) {
+    return null;
+  }
+
+  let a = headA,
+    b = headB;
+  while (a != b) {
+    a = a == null ? headB : a.next;
+    b = b == null ? headA : b.next;
+  }
+  return a;
+};
+```
+
+## [206] 反转链表
 
 ### 递归解法
 

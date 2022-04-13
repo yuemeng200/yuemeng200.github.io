@@ -128,7 +128,7 @@ export default defineConfig({
       "/topics/broswer/": ["", "cross-origin", "cache", "security"],
       "/topics/css/": ["", "basic", "display"],
       '/others/rust/': ['', 'basic', 'datatype', 'owners-ship'],
-      '/algorithm/leetcode/': ['', 'linked-list', 'array', 'iteration', 'tree'],
+      '/algorithm/leetcode/': ['', 'linked-list', 'array', 'iteration', 'tree', 'tricks'],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],

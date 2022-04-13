@@ -1,6 +1,6 @@
-# 第1章 基础部分
+# 第 1 章 基础部分
 
-> 本章节介绍JS与其他语言基本通用的内容，主要包括数据类型、表达式及语句等，只作简要描述。
+> 本章节介绍 JS 与其他语言基本通用的内容，主要包括数据类型、表达式及语句等，只作简要描述。
 
 ## 一、词法
 
@@ -12,7 +12,7 @@
 
 就是名字。
 
-JavaScript的标识符必须以字母、下划线或美元符号开头。
+JavaScript 的标识符必须以字母、下划线或美元符号开头。
 
 ### 3、保留字
 
@@ -20,7 +20,7 @@ JavaScript的标识符必须以字母、下划线或美元符号开头。
 
 ### 4、Unicode
 
-JavaScript使用Unicode作为字符集，但考虑到可移植性等原因，标识符建议只使用ASCII字符。
+JavaScript 使用 Unicode 作为字符集，但考虑到可移植性等原因，标识符建议只使用 ASCII 字符。
 
 ## 二、数据类型
 
@@ -28,17 +28,17 @@ JavaScript使用Unicode作为字符集，但考虑到可移植性等原因，标
 
 #### （1）分类
 
-JavaScript类型可以分为两类，`原始类型`和`对象类型`。普通对象可以看做是属性的集合。
+JavaScript 类型可以分为两类，`原始类型`和`对象类型`。普通对象可以看做是属性的集合。
 
 对象类型是可修改的（mutation），原始类型是不可修改的（immutable）。
 
-> 就这点而言，JS和python比较相似。
+> 就这点而言，JS 和 python 比较相似。
 
 - **原始类型**
   - number
   - string
   - boolean
-  - Symbol型
+  - Symbol 型
   - null
   - undefined
 - **对象类型**
@@ -62,7 +62,7 @@ JavaScript类型可以分为两类，`原始类型`和`对象类型`。普通对
 
 那就是如何判断两个对象`看起来相等`呢（即具有相同的属性）？此时我们就需要枚举每一个属性进行比较来判断。值得注意的是当属性值是对象时我们还需要递归地去比较这个对象属性的子属性，确保每个`端属性`都被枚举到。
 
-> 想要复制出一个看起来相等的数组对象可以使用`Array.from()`函数，注意是浅拷贝，js里根本原生提供深拷贝。可以使用`lodash`库的[_.cloneDeep()]([Lodash Documentation](https://lodash.com/docs/4.17.15#cloneDeep))方法。
+> 想要复制出一个看起来相等的数组对象可以使用`Array.from()`函数，注意是浅拷贝，js 里根本原生提供深拷贝。可以使用`lodash`库的[_.cloneDeep()]([Lodash Documentation](https://lodash.com/docs/4.17.15#cloneDeep))方法。
 
 #### （3）测试
 
@@ -85,22 +85,22 @@ JavaScript类型可以分为两类，`原始类型`和`对象类型`。普通对
 #### （1）字面量
 
 ```js
-0
-0xff	// 255
-0b10101	// 21
-0o377	// 255
-3.14
-.3333	// 0.333
-6.02e-23
+0;
+0xff; // 255
+0b10101; // 21
+0o377; // 255
+3.14;
+0.3333; // 0.333
+6.02e-23;
 ```
 
 #### （2）常用运算
 
-- **Math类**
+- **Math 类**
   - pow()
   - round()
   - random()
-- Number类
+- Number 类
   - parseInt()
   - parseFloat()
   - isNaN()
@@ -109,7 +109,7 @@ JavaScript类型可以分为两类，`原始类型`和`对象类型`。普通对
 
 ### 3、字符串
 
-JavaScript使用Unicode字符集的UTF-16编码，以2个字节作为基本字单元，任何字符是基本字单元的整数倍（大部分为单个基本字单元大小）。字符串的length方法是基本字段元的长度。使用`for/of`循环或`...`操作符迭代字符串时以单个字符为单元。
+JavaScript 使用 Unicode 字符集的 UTF-16 编码，以 2 个字节作为基本字单元，任何字符是基本字单元的整数倍（大部分为单个基本字单元大小）。字符串的 length 方法是基本字段元的长度。使用`for/of`循环或`...`操作符迭代字符串时以单个字符为单元。
 
 #### （1）常用方法
 
@@ -119,7 +119,7 @@ JavaScript使用Unicode字符集的UTF-16编码，以2个字节作为基本字�
 
 - #### substring()
 
-  优先使用`concat()`
+  优先使用`slice()`
 
 - #### slice()
 
@@ -145,12 +145,11 @@ JavaScript使用Unicode字符集的UTF-16编码，以2个字节作为基本字�
 
   ```js
   let a = "first second third";
-  console.log(a.replace(' ', '%20'));		// "first%20second third"
-  console.log(a.repalce(/ /g, '%20'));	// "first%20second%20third"
+  console.log(a.replace(" ", "%20")); // "first%20second third"
+  console.log(a.repalce(/ /g, "%20")); // "first%20second%20third"
   ```
 
-
-​		同样支持正则表达式的还有`match`和`search`
+​ 同样支持正则表达式的还有`match`和`search`
 
 - #### trim()
 
@@ -164,23 +163,25 @@ JavaScript使用Unicode字符集的UTF-16编码，以2个字节作为基本字�
 
 - #### padEnd()
 
+- #### charCodeAt()
+
 #### （2）模板字符串
 
 ```js
 let a = 1;
 let b = 2;
-let result = `sum of them is ${a+b}`;	// 3
+let result = `sum of them is ${a + b}`; // 3
 ```
 
-> 大括号内容作为js表达式解释。
+> 大括号内容作为 js 表达式解释。
 
 ### 4、null 和 undefined
 
 <img src="./img/v2-ae5b7d880c10946840c813b5257ce5a2_1440w.jpg" alt="img" style="zoom: 80%;" />
 
-用null表示程序级别、正常或意料之中的没有值；用undefined表示一种系统级别、意料之外或类似错误的没有值。
+用 null 表示程序级别、正常或意料之中的没有值；用 undefined 表示一种系统级别、意料之外或类似错误的没有值。
 
-> 通常情况我会主动使用null而从不使用undefined。
+> 通常情况我会主动使用 null 而从不使用 undefined。
 
 ### 5、符号
 
@@ -192,11 +193,11 @@ let result = `sum of them is ${a+b}`;	// 3
 
 > 关于对象的内容在后续章节介绍，这里仅介绍全局对象。
 
-全局对象是js工作的场景下的一个上帝对象，全局对象的属性是一系列全局定义的`常量`（undefined等）、`函数`（eval() 等）和`对象`（Math）。
+全局对象是 js 工作的场景下的一个上帝对象，全局对象的属性是一系列全局定义的`常量`（undefined 等）、`函数`（eval() 等）和`对象`（Math）。
 
-因为全局对象的属性是全局定义的，所以可以像全局变量一样使用这些属性，而无需像`对象.属性`的形式来使用。全局对象通过一个引用自身的属性来访问自己，在浏览器环境中是`window`，在Node环境中是`global`，在想要操作全局对象本身时可以这些属性来代替。
+因为全局对象的属性是全局定义的，所以可以像全局变量一样使用这些属性，而无需像`对象.属性`的形式来使用。全局对象通过一个引用自身的属性来访问自己，在浏览器环境中是`window`，在 Node 环境中是`global`，在想要操作全局对象本身时可以这些属性来代替。
 
-> ES2020定义了`globalThis`属性以在任何环境下引用全局对象。
+> ES2020 定义了`globalThis`属性以在任何环境下引用全局对象。
 
 ## 三、变量和常量
 
@@ -216,7 +217,7 @@ let result = `sum of them is ${a+b}`;	// 3
 
 ### var
 
-在ES6之前，js只能用var声明变量，var具有一些奇怪的特性，现在尽量避免使用var，但了解这些特性是必要的。
+在 ES6 之前，js 只能用 var 声明变量，var 具有一些奇怪的特性，现在尽量避免使用 var，但了解这些特性是必要的。
 
 - var只有函数作用域，没有块级作用域。一切函数体之外的var变量都是全局变量。
 - 通过var声明的全局变量作为全局对象的属性存在，这点与const和let不同。但是该属性不能通过`delete`操作符删除。
@@ -227,7 +228,7 @@ let result = `sum of them is ${a+b}`;	// 3
 
 ## 四、其他
 
-> JavaScript是类c语言。语句上几乎完全继承了c的语法，暂且不再赘述。只讲述个别特性。
+> JavaScript 是类 c 语言。语句上几乎完全继承了 c 的语法，暂且不再赘述。只讲述个别特性。
 
 ### 1、关于遍历
 
@@ -236,16 +237,16 @@ let result = `sum of them is ${a+b}`;	// 3
 `for/of`循环只能作用于`可迭代对象`，例如数组、字符串和集合等，注意一般对象不是可迭代对象。
 
 ```js
-let m = new Map([["key", "value"],]);
-for(let [k, v] of m){
-    k	// "key"
-    v	// "value"
+let m = new Map([["key", "value"]]);
+for (let [k, v] of m) {
+  k; // "key"
+  v; // "value"
 }
 ```
 
 本例用到了`Map()`和`解构赋值`，在后面会具体介绍。
 
-> 其中Map的构造函数有些奇怪，只接受可迭代对象（拒绝了js最基本的对象字典）
+> 其中 Map 的构造函数有些奇怪，只接受可迭代对象（拒绝了 js 最基本的对象字典）
 >
 > https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map/Map
 
@@ -281,6 +282,6 @@ for(let [k, v] of m){
 
 严格模式的要求很多，但在大部分在基础开发都不会涉及或者本身已经成为了一种默认的规范，在这里只介绍常见的几条规则。
 
-- 不允许使用`with`语句。实际上with语句在非严格模式下也几乎废弃。
+- 不允许使用`with`语句。实际上 with 语句在非严格模式下也几乎废弃。
 - 变量在使用前必须声明。之前提到给未声明的变量赋值是允许的，相当于全局变量，这在严格模式下是禁止的。
-- 函数作为函数（而非方法）调用时，`this`的指向为`undefined`，而不是全局对象。关于this指向是后面的重点。
+- 函数作为函数（而非方法）调用时，`this`的指向为`undefined`，而不是全局对象。关于 this 指向是后面的重点。
