@@ -273,7 +273,9 @@ provide: function () {
 // 孩子组件
 inject: ['getMap']
 ```
+
 > 不支持响应式
+
 #### $attrs 和 $listener
 
 当非`props`被声明在子组件时时，默认情况下这些属性将作为`dom属性`作用到子组件的根元素上，并会替换已有的属性（class 和 style 采取合并策略）。可以开启`inheritAttrs: false`选项阻止这种可能的破坏。此时传递的属性在子组件中可以通过`this.$attrs`获取。
@@ -427,17 +429,54 @@ export default {
 </style>
 ```
 
-## 7、过渡 & 动画
+## 7、class 和 style
 
-vue 提供了`transition`封装组件，这个相当于`vue`给组件使用 css 动效提供了一种更简单、强大的方式。
-触发时机：
+`class`和`style`作为标签的属性，自然能够被`v-bind`修饰，但字符串拼接太麻烦，vue 专门增强了这种功能。
 
-- v-if
-- v-show
-- 动态组件
-- 组件根节点
+### (1) 绑定 class
 
-有一个常用的场景是`router-view`过渡使用，在 `vue2` 可以这样写：
+`对象语法`用于动态添加和移除，`数组语法`用于动态切换。
+
+#### 对象语法
+
+```html
+<div
+  class="static"
+  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+></div>
+```
+
+> 此时`isActive`变量决定`active`这个 class 的添加。
+
+```html
+<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+```
+
+> 此时`errorClass`的 class 值会被添加到标签上。
+
+### (2) 绑定内联 style
+
+#### 对象语法
+
+CSS property 名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名。注意原生内联写法相区分。
+
+```html
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+
+#### 数组语法
+
+数组语法可以将多个样式对象应用到同一个元素上
+
+```html
+<div v-bind:style="[baseStyles, overridingStyles]"></div>
+```
+
+## 8、过渡 & 动画 vue
+
+提供了`transition`封装组件，这个相当于`vue`给组件使用 css
+动效提供了一种更简单、强大的方式。 触发时机： - v-if - v-show - 动态组件 -
+组件根节点 有一个常用的场景是`router-view`过渡使用，在 `vue2` 可以这样写：
 
 ```html
 <transition :name="transitionName">
@@ -458,7 +497,7 @@ vue 提供了`transition`封装组件，这个相当于`vue`给组件使用 css 
 
 其实就是把从检测`router-view`移动到检测内部组件了，所以要把内部组件暴露到`component`身上去。
 
-## 8、补充
+## 9、补充
 
 ### (1) 开发插件
 
