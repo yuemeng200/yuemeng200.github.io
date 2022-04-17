@@ -1,6 +1,34 @@
 # 第 1 章 链表
 
-> 不用`递归`和`双指针`你就输了。
+> 不用`递归`和`双指针`你就输了。事实上要先考虑双指针，太麻烦再去考虑链表。
+
+## [2] 两数相加
+
+`中等`
+对于 leetcode 链表问题一定要想好怎么规避掉边际条件，不然一堆的边际判断会很难受。这里我结果用的`新的链表`就是这个原因，同时也不会污染原来的数据。我不需要手动控制哪个链表到终点了，用三元运算符一直让程序自己去判断。
+值得注意的是结果返回的是`res.next`，这样就不必在之后每次先创建好节点再去修改值。
+
+```js
+var addTwoNumbers = function (l1, l2) {
+  let res = new ListNode();
+  let sum = 0,
+    up = 0,
+    p = res;
+  while (l1 || l2) {
+    sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + up;
+    if (sum > 9) up = 1;
+    else up = 0;
+    p.next = new ListNode(sum % 10, null);
+    p = p.next;
+    l1 = l1 ? l1.next : null; // 注意这里的判断条件是l1，而不是l1.next
+    l2 = l2 ? l2.next : null;
+  }
+  if (up) {
+    p.next = new ListNode(1, null);
+  }
+  return res.next;
+};
+```
 
 ## [21] 合并两个有序链表
 
