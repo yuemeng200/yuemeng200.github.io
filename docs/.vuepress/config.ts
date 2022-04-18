@@ -1,4 +1,4 @@
-import { defineConfig } from 'vuepress/config'
+import { defineConfig } from "vuepress/config";
 export default defineConfig({
   title: "yuemeng",
   description: "Truelove always keeps one upward.",
@@ -41,17 +41,18 @@ export default defineConfig({
         ],
       },
       {
-        text: "算法", link: "/algorithm/",
+        text: "算法",
+        link: "/algorithm/",
         items: [
           {
-            text: '题解',
-            link: '/algorithm/leetcode/'
+            text: "题解",
+            link: "/algorithm/leetcode/",
           },
           {
-            text: '总结',
-            link: '/algorithm/summary/'
-          }
-        ]
+            text: "总结",
+            link: "/algorithm/summary/",
+          },
+        ],
       },
       {
         text: "其他专题",
@@ -62,8 +63,8 @@ export default defineConfig({
             link: "/others/node/",
           },
           {
-            text: 'rust',
-            link: '/others/rust/'
+            text: "rust",
+            link: "/others/rust/",
           },
           {
             text: "Electron",
@@ -109,10 +110,9 @@ export default defineConfig({
         "function",
         "class",
         "module",
-        "api",
         "iterator",
         "async",
-        'meta'
+        "meta",
       ],
       "/topics/vue/": [
         "",
@@ -126,13 +126,27 @@ export default defineConfig({
         "vue3",
         "vite",
       ],
-      "/topics/broswer/": ["", "cross-origin", "cache", "security"],
+      "/topics/broswer/": [
+        "",
+        "cross-origin",
+        "cache",
+        "security",
+        "storage",
+        "dom",
+      ],
       "/topics/css/": ["", "basic", "display"],
-      '/others/rust/': ['', 'basic', 'datatype', 'owners-ship'],
-      '/algorithm/leetcode/': ['', 'linked-list', 'array', 'iteration', 'tree', 'tricks'],
+      "/others/rust/": ["", "basic", "datatype", "owners-ship"],
+      "/algorithm/leetcode/": [
+        "",
+        "linked-list",
+        "array",
+        "iteration",
+        "tree",
+        "tricks",
+      ],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],
       "/thoughts/": [""],
     },
   },
-})
+});
