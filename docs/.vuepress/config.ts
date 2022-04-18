@@ -112,6 +112,7 @@ export default defineConfig({
         "api",
         "iterator",
         "async",
+        'meta'
       ],
       "/topics/vue/": [
         "",

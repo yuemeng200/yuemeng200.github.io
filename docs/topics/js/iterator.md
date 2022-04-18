@@ -72,3 +72,21 @@ fucntion map(iterable, f){
 ```
 
 > 非常巧妙。
+<<<<<<< HEAD
+=======
+
+## 2、生成器
+
+生成器`Generator`本质上是一种函数，用来生成某种迭代规则的迭代器`Iterator`对象，可以看做一种描述迭代关系的语法糖。
+
+```js
+function* helloWorldGenerator() {
+  yield "hello";
+  yield "world";
+  return "ending";
+}
+
+let hw = helloWorldGenerator();
+hw.next(); // 'hello'
+```
+>>>>>>> a208d48704d020d1f80d78cb580bb42401d1eeeb
