@@ -72,8 +72,6 @@ fucntion map(iterable, f){
 ```
 
 > 非常巧妙。
-<<<<<<< HEAD
-=======
 
 ## 2、生成器
 
@@ -89,4 +87,3 @@ function* helloWorldGenerator() {
 let hw = helloWorldGenerator();
 hw.next(); // 'hello'
 ```
->>>>>>> a208d48704d020d1f80d78cb580bb42401d1eeeb
