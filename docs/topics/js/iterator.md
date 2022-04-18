@@ -1,4 +1,4 @@
-第8章 迭代器
+# 第 8 章 迭代器
 
 ## 1、迭代器
 
@@ -21,17 +21,17 @@
 如下：
 
 ```js
-let list = [1,2,3,4];
+let list = [1, 2, 3, 4];
 let iter = list[Symbol.iterator]();
-let head = iter.next().value;	// 1
-let tail = [...iter];	// [2,3,4]
+let head = iter.next().value; // 1
+let tail = [...iter]; // [2,3,4]
 ```
 
 ### （3）实现可迭代对象类
 
 > 当拿一个可迭代对象对执行迭代相关操作时，会自动通过它的`Symbol.iterator`方法获取到`迭代器对象`，通过`next`函数获取当前的状态，并递归的使用该迭代器对象（本质上也是可迭代对象）的`Symbol.iterator`方法获取下一个状态的迭代器对象。
 
-实现可迭代Range类：
+实现可迭代 Range 类：
 
 ```js
 class Range {
@@ -52,7 +52,7 @@ class Range {
 }
 ```
 
-通过迭代器我们可以重写一些迭代方法。如map()：
+通过迭代器我们可以重写一些迭代方法。如 map()：
 
 ```js
 fucntion map(iterable, f){
@@ -72,4 +72,3 @@ fucntion map(iterable, f){
 ```
 
 > 非常巧妙。
-
