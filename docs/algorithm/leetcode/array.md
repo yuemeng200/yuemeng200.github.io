@@ -104,4 +104,27 @@ var maxProfit = function (prices) {
 };
 ```
 
-## [171] Excel 表列序号
+<!-- ## [171] Excel 表列序号 -->
+
+## [448] 找到所有数组中消失的数字
+
+给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。
+这个显然用 hash，时间复杂度为`O(1)`。又因为数字有范围，可以用 hash 数组，而数字范围又恰恰不超出原数组范围，所以可以直接原地，空间复杂度`O(1)`。原地时用`num[i]`表征`i`的状态，但要注意又不能破坏本身的数据，所以使用 abs 或者取余是最好的方式。
+
+> 事实上这里我用`nums[i-1]`来表征的`i`，一个字节都不浪费。
+
+```js
+var findDisappearedNumbers = function (nums) {
+  for (let num of nums) {
+    let pos = Math.abs(num) - 1;
+    if (nums[pos] > 0) nums[pos] = -nums[pos];
+  }
+  let res = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) {
+      res.push(i + 1);
+    }
+  }
+  return res;
+};
+```

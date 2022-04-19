@@ -79,3 +79,23 @@ var invertTree = function (root) {
   return root;
 };
 ```
+
+## [543] 二叉树的直径
+
+就是求二叉树任意两个节点间的最大距离。
+可以发现这条最大距离的路径满足这个条件：它一定包含某个父节点以及其左右最深的子路。所有这个问题就是找到具有最深左右分支的节点，本身还是个求`depth`的问题（深度优先遍历），在求 depth 的过程顺便更新下`maxLength`。
+
+```js
+var diameterOfBinaryTree = function (root) {
+  let maxLength = 0;
+  let depth = function (node) {
+    if (!node) return 0;
+    let left = depth(node.left);
+    let right = depth(node.right);
+    maxLength = Math.max(maxLength, left + right + 1);
+    return Math.max(left, right) + 1;
+  };
+  depth(root);
+  return maxLength - 1;
+};
+```
