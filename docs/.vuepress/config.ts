@@ -110,7 +110,7 @@ export default defineConfig({
         "function",
         "class",
         "module",
-        "iterator",
+        "dp",
         "async",
         "meta",
       ],
@@ -143,6 +143,10 @@ export default defineConfig({
         "iteration",
         "tree",
         "tricks",
+      ],
+      '/algorithm/summary/': [
+        '',
+        'dp'
       ],
       "/cs/cp": ["", "cp"],
       "/tools/": ["", "regexp"],

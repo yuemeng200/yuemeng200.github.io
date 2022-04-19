@@ -99,3 +99,19 @@ var diameterOfBinaryTree = function (root) {
   return maxLength - 1;
 };
 ```
+
+## [617] 合并二叉树
+
+合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，不为 null 的节点将直接作为新二叉树的节点。
+采用`深度优先`，是尾递归，每次合并对照位置的节点。
+
+```js
+var mergeTrees = function (root1, root2) {
+  if (!root1) return root2;
+  if (!root2) return root1;
+  root1.val = root1.val + root2.val;
+  root1.left = mergeTrees(root1.left, root2.left);
+  root1.right = mergeTrees(root1.right, root2.right);
+  return root1;
+};
+```

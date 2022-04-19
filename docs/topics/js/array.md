@@ -78,6 +78,23 @@ a[100]; // undefined
 #### fill() :star:
 
 快速`填充`方法，第一个参数为填充元素，后两个可选参数用来指定填充范围，不指定默认全部填充。
+:warning: 考虑下面的代码：
+
+```js
+let doubleArr = new Array(10);
+doubleArr.fill(new Array(10));
+```
+
+此时快速创建了一个`二维数组`，但是事实上所有内层数组都指向同一个数组，这里的`new Array()`只会执行一次，太坑了。所以`fill()`方法事实上只能填充`value`，而不是`obj`。
+可以用下面的方法快速生成二维数组：
+
+```js
+let doubleArr = Array.from(Array(10), () => {
+  return Array(10).fill("default");
+});
+```
+
+> 很是巧妙。可以把`Array()`当作`new Array()`来使用。
 
 #### sort() :star:
 
@@ -200,7 +217,8 @@ let a = [..."hello"];
 
 出现在等号左边时具有`收集`效果，
 
-````js
+```js
 const [first, ...rest] = 'letter'
 
 > 在函数传参时，也有一个隐含的等号操作，所以同样可以用拓展符号。
+```
