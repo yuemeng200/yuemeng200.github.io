@@ -46,6 +46,60 @@ var lengthOfLongestSubstring = function (s) {
 
 > 算了，优化个锤子，有这时间拿来睡觉不好吗？
 
+## [15] 三数之和
+
+要求找出数组中所有相加结果为 0 的三元组，且不重复。
+回忆之前`两数之和`问题，主流的方法有两种，一是`hashMap`，二是`排序+双指针法`，两者复杂度都要低于`O(n^2)`，其中`hashMap`的效率更高些，因为`排序`还是比较伤的。
+`三数之和`理论上和两数之和一样，只是多了层外层循环来设置两数的`和`是啥。又因为是要所有无重复的结果，用`hash`就比较难控制了，此时`排序+双指针`的优势就体现出来了。
+但本题的优化细节和坑还是比较多的：
+
+- JS 的 sort 适合 String，不适合排数值
+- 当第一个值大于零时就可以终止了
+- 找到一个满足的元组不要急着退出当前循环，继续找
+
+:::tip 为什么`排序+双指针`有效？
+双指针法是跳过一些状态的判断，但那些状态都是显然无效的，比如`sum`偏小时需要`L`指针增大，此时跳过的是`L`与`R`左侧的组合状态，事实是`sum`已经偏小了，原来地`L`与这些`R`组合只会更加偏小，所以直接跳过无碍。
+:::
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+  let len = nums.length,
+    res = [];
+  if (len < 3) return [];
+  nums = nums.sort((a, b) => {
+    return a - b;
+  });
+  for (let i = 0; i < len; i++) {
+    if (nums[i] > 0) return res;
+    if (i > 0 && nums[i] == nums[i - 1]) continue;
+    let L = i + 1,
+      R = len - 1;
+    while (L < R) {
+      if (nums[i] + nums[L] + nums[R] == 0) {
+        res.push([nums[i], nums[L], nums[R]]);
+        while (L < R && nums[L] == nums[L + 1]) {
+          L++;
+        }
+        while (L < R && nums[R] == nums[R - 1]) {
+          R--;
+        }
+        L++;
+        R--;
+      } else if (nums[i] + nums[L] + nums[R] > 0) {
+        R--;
+      } else {
+        L++;
+      }
+    }
+  }
+  return res;
+};
+```
+
 ## [52] 最大连续子数组和
 
 这是道经典的`动态规划`问题，动态规划就是遍历数组填表的过程，表的下一项内容依赖前一项。
