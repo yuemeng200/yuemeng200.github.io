@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 5 章 数值和位操作 | yuemeng</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="shortcut icon" href="/favicon.svg">
+    <script src="/scripts/scrollToHash.js"></script>
+    <meta name="description" content="Truelove always keeps one upward.">
+    
+    <link rel="preload" href="/assets/css/0.styles.fe70753d.css" as="style"><link rel="preload" href="/assets/js/app.0025b139.js" as="script"><link rel="preload" href="/assets/js/2.0f677a1a.js" as="script"><link rel="preload" href="/assets/js/25.4c69edea.js" as="script"><link rel="prefetch" href="/assets/js/10.f2b2dae4.js"><link rel="prefetch" href="/assets/js/11.216fc340.js"><link rel="prefetch" href="/assets/js/12.ac811327.js"><link rel="prefetch" href="/assets/js/13.d6442e85.js"><link rel="prefetch" href="/assets/js/14.b2c8bcfb.js"><link rel="prefetch" href="/assets/js/15.4fab21c3.js"><link rel="prefetch" href="/assets/js/16.fdfcfc44.js"><link rel="prefetch" href="/assets/js/17.e3820b2f.js"><link rel="prefetch" href="/assets/js/18.6b846244.js"><link rel="prefetch" href="/assets/js/19.9ab27458.js"><link rel="prefetch" href="/assets/js/20.3e90174f.js"><link rel="prefetch" href="/assets/js/21.170ca86b.js"><link rel="prefetch" href="/assets/js/22.1511f4eb.js"><link rel="prefetch" href="/assets/js/23.2262ddfa.js"><link rel="prefetch" href="/assets/js/24.4469cb45.js"><link rel="prefetch" href="/assets/js/26.5197f1ed.js"><link rel="prefetch" href="/assets/js/27.0ec2ab18.js"><link rel="prefetch" href="/assets/js/28.b2ae3835.js"><link rel="prefetch" href="/assets/js/29.05f7a734.js"><link rel="prefetch" href="/assets/js/3.6415f21f.js"><link rel="prefetch" href="/assets/js/30.dca4dd63.js"><link rel="prefetch" href="/assets/js/31.be24a362.js"><link rel="prefetch" href="/assets/js/32.1db30051.js"><link rel="prefetch" href="/assets/js/33.88164e78.js"><link rel="prefetch" href="/assets/js/34.975df5ea.js"><link rel="prefetch" href="/assets/js/35.4374cb62.js"><link rel="prefetch" href="/assets/js/36.adca700b.js"><link rel="prefetch" href="/assets/js/37.864fcd63.js"><link rel="prefetch" href="/assets/js/38.7a11cb2f.js"><link rel="prefetch" href="/assets/js/39.6a7780af.js"><link rel="prefetch" href="/assets/js/4.2a389db0.js"><link rel="prefetch" href="/assets/js/40.e8f79f3d.js"><link rel="prefetch" href="/assets/js/41.913b278f.js"><link rel="prefetch" href="/assets/js/42.5054b307.js"><link rel="prefetch" href="/assets/js/43.3e865869.js"><link rel="prefetch" href="/assets/js/44.5abf1fed.js"><link rel="prefetch" href="/assets/js/45.ce78c273.js"><link rel="prefetch" href="/assets/js/46.16dc9acc.js"><link rel="prefetch" href="/assets/js/47.13cc6fa0.js"><link rel="prefetch" href="/assets/js/48.87dd334e.js"><link rel="prefetch" href="/assets/js/49.c4abdda8.js"><link rel="prefetch" href="/assets/js/5.af1680a4.js"><link rel="prefetch" href="/assets/js/50.01a96481.js"><link rel="prefetch" href="/assets/js/51.b8293e6d.js"><link rel="prefetch" href="/assets/js/52.a4527582.js"><link rel="prefetch" href="/assets/js/53.840e0d17.js"><link rel="prefetch" href="/assets/js/54.1f94d7c9.js"><link rel="prefetch" href="/assets/js/55.e12d0441.js"><link rel="prefetch" href="/assets/js/56.17f1b1e0.js"><link rel="prefetch" href="/assets/js/57.d5b73a32.js"><link rel="prefetch" href="/assets/js/58.658ae004.js"><link rel="prefetch" href="/assets/js/59.fb1e3de7.js"><link rel="prefetch" href="/assets/js/6.b6b2045f.js"><link rel="prefetch" href="/assets/js/60.d77ab6bc.js"><link rel="prefetch" href="/assets/js/61.244d4b6c.js"><link rel="prefetch" href="/assets/js/62.ab169751.js"><link rel="prefetch" href="/assets/js/63.af88216e.js"><link rel="prefetch" href="/assets/js/64.7b7a36ca.js"><link rel="prefetch" href="/assets/js/65.404a9062.js"><link rel="prefetch" href="/assets/js/66.5e03a276.js"><link rel="prefetch" href="/assets/js/7.f54f8a36.js"><link rel="prefetch" href="/assets/js/8.0f0a296d.js"><link rel="prefetch" href="/assets/js/9.82af9c9c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fe70753d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.svg" alt="yuemeng" class="logo"> <span class="site-name can-hide">yuemeng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link router-link-active">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link router-link-active">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/algorithm/leetcode/" aria-current="page" class="sidebar-link">leetcode 题解</a></li><li><a href="/algorithm/leetcode/linked-list.html" class="sidebar-link">第 1 章 链表</a></li><li><a href="/algorithm/leetcode/array.html" class="sidebar-link">第 2 章 数组</a></li><li><a href="/algorithm/leetcode/tree.html" class="sidebar-link">第 3 章 树</a></li><li><a href="/algorithm/leetcode/graph.html" class="sidebar-link">第 4 章 图</a></li><li><a href="/algorithm/leetcode/bits.html" aria-current="page" class="active sidebar-link">第 5 章 数值和位操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithm/leetcode/bits.html#_136-只出现一次的数字" class="sidebar-link">[136] 只出现一次的数字</a></li><li class="sidebar-sub-header"><a href="/algorithm/leetcode/bits.html#_169-多数元素" class="sidebar-link">[169] 多数元素</a></li><li class="sidebar-sub-header"><a href="/algorithm/leetcode/bits.html#_172-阶乘后的零" class="sidebar-link">[172] 阶乘后的零</a></li><li class="sidebar-sub-header"><a href="/algorithm/leetcode/bits.html#_191-位-1-的个数" class="sidebar-link">[191] 位 1 的个数</a></li></ul></li><li><a href="/algorithm/leetcode/dp.html" class="sidebar-link">第 6 章 动态规划</a></li><li><a href="/algorithm/leetcode/backtrack.html" class="sidebar-link">第 7 章 回溯</a></li><li><a href="/algorithm/leetcode/induction.html" class="sidebar-link">第 8 章 数学归纳</a></li><li><a href="/algorithm/leetcode/binary-search.html" class="sidebar-link">第 9 章 二分查找</a></li><li><a href="/algorithm/leetcode/geometry.html" class="sidebar-link">第 10 章 图形几何</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-5-章-数值和位操作"><a href="#第-5-章-数值和位操作" class="header-anchor">#</a> 第 5 章 数值和位操作</h1> <h2 id="_136-只出现一次的数字"><a href="#_136-只出现一次的数字" class="header-anchor">#</a> [136] 只出现一次的数字</h2> <p>除了某个数字外，其余数字都出现两次。hash 法一定可解，但没这个必要。
+<strong>比特运算</strong> <code>异或</code>操作本身就满足交换律，天然适合解这个问题。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">singleNumber</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> res <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res <span class="token operator">=</span> res <span class="token operator">^</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>如果其他元素都出现 3 次呢？上面的方法显然就不可用了，假设这些数字最大 32 位，当我们把这些数字的所有位对齐，累加起来，如果某位累加的结果不是 3 的倍数，说明那个特殊数字在该为位上是 1，否则是 0（通过十进制累加做这道题也是可行的，要看题意给的数字范围怎么表示方便，二进制肯定更快）。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">singleNum</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> num <span class="token keyword">of</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">32</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token punctuation">(</span>num <span class="token operator">&gt;&gt;</span> <span class="token punctuation">(</span><span class="token number">31</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// n&amp;1 获取二进制最低位</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">32</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res <span class="token operator">=</span> <span class="token punctuation">(</span>res <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// n&lt;&lt;1+next二进制转十进制</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>显然无论出现几次都能用这个方法。</p></blockquote> <h2 id="_169-多数元素"><a href="#_169-多数元素" class="header-anchor">#</a> [169] 多数元素</h2> <p>找出给定数组中出现次数`超出一半的元素。
+最先想到的是 hash 法，hash 是通用的，但题目限制为找出过半的元素，可以使用摩尔投票法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">majorityElement</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> vote <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> ticket <span class="token keyword">of</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ticket <span class="token operator">==</span> vote<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      num<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      num<span class="token operator">--</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vote <span class="token operator">=</span> ticket<span class="token punctuation">;</span>
+        num<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> vote<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>劳资就是票多，一个人干你们所有。</p></blockquote> <h2 id="_172-阶乘后的零"><a href="#_172-阶乘后的零" class="header-anchor">#</a> [172] 阶乘后的零</h2> <p>乘法运算中，末尾的零是由<code>2x5</code>贡献的，而 2 的数量显然要多余 5，因数最终能分解出的 5 的数量就是结果中末尾 0 的数量。
+且所有能分解出 5 的数中，分解出 5 的数量随指数倍递增：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">trailingZeroes</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;=</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> temp <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>n <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    count <span class="token operator">+=</span> temp<span class="token punctuation">;</span>
+    n <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_191-位-1-的个数"><a href="#_191-位-1-的个数" class="header-anchor">#</a> [191] 位 1 的个数</h2> <p>判断整数 n 的二进制格式中 1 的个数。通过位运算<code>i&amp;(i-1)</code>每次消去最右侧的 1，直到变为 0 时的次数。为什么可以呢？
+因为如果该数字最末尾是 1 时，-1 恰好消去末尾 1，与原数做与运算也不影响结果。
+如果末尾是 0，无论是几个零，-1 后总可以把最右侧的 1 变成 0，同时所有右侧的 0 都变为 1，同时再与原数做与运算，所有刚变成的 1 又会被重置为零。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">hammingWeight</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    n <span class="token operator">&amp;=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    ans<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>这道题还能变形一下，如果要求所有不大于 n 的整数的二进制中的 1 呢？当前方法仍然可用，但复杂度显然要高于<code>O(n)</code>了，使用动态规划能保证复杂度为<code>O(n)</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function">countBits</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">;</span>
+    sum<span class="token operator">+=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>因为对于任一偶数 i，它和 i/2 中 1 的数量一样，对于奇数 i，它比 i/2 中 1 的数量多 1。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/23/2022, 10:27:52 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/algorithm/leetcode/graph.html" class="prev">
+        第 4 章 图
+      </a></span> <span class="next"><a href="/algorithm/leetcode/dp.html">
+        第 6 章 动态规划
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0025b139.js" defer></script><script src="/assets/js/2.0f677a1a.js" defer></script><script src="/assets/js/25.4c69edea.js" defer></script>
+  </body>
+</html>
