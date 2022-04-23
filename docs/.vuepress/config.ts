@@ -134,7 +134,7 @@ export default defineConfig({
         "storage",
         "dom",
       ],
-      "/topics/css/": ["", "basic", "display"],
+      "/topics/css/": ["", "selector", "display", 'box-model', 'theme'],
       "/others/rust/": ["", "basic", "datatype", "owners-ship"],
       "/algorithm/leetcode/": [
         "",
@@ -143,6 +143,7 @@ export default defineConfig({
         "dp",
         "tree",
         "tricks",
+        'backtrack'
       ],
       '/algorithm/summary/': [
         '',
