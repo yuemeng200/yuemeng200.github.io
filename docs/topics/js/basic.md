@@ -135,15 +135,11 @@ str.includes(searchString[, position])
 
 #### substring()
 
-和`slice`一样，优先使用`slice()
+`substring(start, end)`
 
 #### slice()
 
 第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。可为负数
-
-#### substr()
-
-第二个参数为截取长度
 
 #### split()
 

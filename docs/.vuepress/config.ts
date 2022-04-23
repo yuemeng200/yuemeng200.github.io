@@ -140,10 +140,14 @@ export default defineConfig({
         "",
         "linked-list",
         "array",
-        "dp",
         "tree",
-        "tricks",
-        'backtrack'
+        'graph',
+        "bits",
+        "dp",
+        'backtrack',
+        'induction',
+        'binary-search',
+        'geometry'
       ],
       '/algorithm/summary/': [
         '',
