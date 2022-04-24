@@ -20,7 +20,7 @@ actionLink: /topics/js/
     <h2>To be a full stack engineer</h2>
     <p>
       <span>基础：</sapn>
-      算法、计算机网络、操作系统、编译原理、CSAPP...
+      <a href="algorithm/leetcode/index.html">算法</a>、计算机网络、操作系统、编译原理、CSAPP...
     </p>
     <p>
       <span>专题：</sapn>
