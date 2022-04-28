@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1、继承 | yuemeng</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="shortcut icon" href="/favicon.svg">
+    <script src="/scripts/scrollToHash.js"></script>
+    <meta name="description" content="Truelove always keeps one upward.">
+    
+    <link rel="preload" href="/assets/css/0.styles.c2f6d75e.css" as="style"><link rel="preload" href="/assets/js/app.3b186049.js" as="script"><link rel="preload" href="/assets/js/2.e94ab2b6.js" as="script"><link rel="preload" href="/assets/js/64.d5368691.js" as="script"><link rel="prefetch" href="/assets/js/10.1b8b1bdc.js"><link rel="prefetch" href="/assets/js/11.f6ee59c1.js"><link rel="prefetch" href="/assets/js/12.32b93a79.js"><link rel="prefetch" href="/assets/js/13.d8390faa.js"><link rel="prefetch" href="/assets/js/14.82ef8a79.js"><link rel="prefetch" href="/assets/js/15.fedb0b93.js"><link rel="prefetch" href="/assets/js/16.f0d32201.js"><link rel="prefetch" href="/assets/js/17.b94d94f2.js"><link rel="prefetch" href="/assets/js/18.e2e57a04.js"><link rel="prefetch" href="/assets/js/19.02cbb0aa.js"><link rel="prefetch" href="/assets/js/20.f1219c33.js"><link rel="prefetch" href="/assets/js/21.901186b4.js"><link rel="prefetch" href="/assets/js/22.70a4121c.js"><link rel="prefetch" href="/assets/js/23.cc50d200.js"><link rel="prefetch" href="/assets/js/24.91f618f6.js"><link rel="prefetch" href="/assets/js/25.544035a1.js"><link rel="prefetch" href="/assets/js/26.6f6840ac.js"><link rel="prefetch" href="/assets/js/27.18b1a54f.js"><link rel="prefetch" href="/assets/js/28.91b35907.js"><link rel="prefetch" href="/assets/js/29.6624a5c9.js"><link rel="prefetch" href="/assets/js/3.ebdb30f6.js"><link rel="prefetch" href="/assets/js/30.0c3c6b6e.js"><link rel="prefetch" href="/assets/js/31.1ce92adf.js"><link rel="prefetch" href="/assets/js/32.d565cc5f.js"><link rel="prefetch" href="/assets/js/33.8859364c.js"><link rel="prefetch" href="/assets/js/34.50845b96.js"><link rel="prefetch" href="/assets/js/35.df02a466.js"><link rel="prefetch" href="/assets/js/36.562ccd35.js"><link rel="prefetch" href="/assets/js/37.e9900fb2.js"><link rel="prefetch" href="/assets/js/38.dbc64880.js"><link rel="prefetch" href="/assets/js/39.72e1ae6b.js"><link rel="prefetch" href="/assets/js/4.61bc38da.js"><link rel="prefetch" href="/assets/js/40.2eb3817a.js"><link rel="prefetch" href="/assets/js/41.50eca4d2.js"><link rel="prefetch" href="/assets/js/42.1d4bd81c.js"><link rel="prefetch" href="/assets/js/43.2b19913b.js"><link rel="prefetch" href="/assets/js/44.6a01feb1.js"><link rel="prefetch" href="/assets/js/45.c8a813c7.js"><link rel="prefetch" href="/assets/js/46.c005c3f7.js"><link rel="prefetch" href="/assets/js/47.813d910c.js"><link rel="prefetch" href="/assets/js/48.5462ce62.js"><link rel="prefetch" href="/assets/js/49.c0fe0118.js"><link rel="prefetch" href="/assets/js/5.834ce697.js"><link rel="prefetch" href="/assets/js/50.b129d4fc.js"><link rel="prefetch" href="/assets/js/51.d19e1b52.js"><link rel="prefetch" href="/assets/js/52.f51e16c0.js"><link rel="prefetch" href="/assets/js/53.8a459191.js"><link rel="prefetch" href="/assets/js/54.1baf8b2b.js"><link rel="prefetch" href="/assets/js/55.52d61b66.js"><link rel="prefetch" href="/assets/js/56.c2f38d33.js"><link rel="prefetch" href="/assets/js/57.c223766a.js"><link rel="prefetch" href="/assets/js/58.eb94a146.js"><link rel="prefetch" href="/assets/js/59.93293c13.js"><link rel="prefetch" href="/assets/js/6.a0e1c743.js"><link rel="prefetch" href="/assets/js/60.f4e2ea1f.js"><link rel="prefetch" href="/assets/js/61.8998ea01.js"><link rel="prefetch" href="/assets/js/62.9415b471.js"><link rel="prefetch" href="/assets/js/63.32578194.js"><link rel="prefetch" href="/assets/js/65.02dc5ff1.js"><link rel="prefetch" href="/assets/js/66.4732b538.js"><link rel="prefetch" href="/assets/js/67.8a4ed632.js"><link rel="prefetch" href="/assets/js/68.857c65ff.js"><link rel="prefetch" href="/assets/js/69.d0d7d965.js"><link rel="prefetch" href="/assets/js/7.2ba3147b.js"><link rel="prefetch" href="/assets/js/70.20af285a.js"><link rel="prefetch" href="/assets/js/71.a108346d.js"><link rel="prefetch" href="/assets/js/72.a7440fcc.js"><link rel="prefetch" href="/assets/js/73.d29d7d6b.js"><link rel="prefetch" href="/assets/js/74.5228b8d9.js"><link rel="prefetch" href="/assets/js/8.f8eacf8d.js"><link rel="prefetch" href="/assets/js/9.900f735c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c2f6d75e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.svg" alt="yuemeng" class="logo"> <span class="site-name can-hide">yuemeng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link router-link-active">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link router-link-active">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1、继承"><a href="#_1、继承" class="header-anchor">#</a> 1、继承</h2> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>theName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> theName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token function">move</span><span class="token punctuation">(</span>distanceInMeters<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> moved </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>distanceInMeters<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">m.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Snake</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token function">move</span><span class="token punctuation">(</span>distanceInMeters <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Slithering...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span>distanceInMeters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>派生类包含了一个构造函数，它 必须调用 <code>super()</code>，它会执行基类的构造函数。 而且，在构造函数里访问 <code>this</code>的属性之前，我们 <em>一定</em>要调用 <code>super()</code>。</p> <h2 id="_2、修饰符"><a href="#_2、修饰符" class="header-anchor">#</a> 2、修饰符</h2> <p>默认为<code>public</code>。</p> <p>当成员被标记成 <code>private</code>时，它就不能在声明它的类的外部访问。</p> <p><code>protected</code>修饰符与 <code>private</code>修饰符的行为很相似，但有一点不同， <code>protected</code>成员在派生类中仍然可以访问。</p> <blockquote><p>构造函数也可以被标记成 <code>protected</code>。 这意味着这个类不能在包含它的类外被实例化，但是能被继承。</p></blockquote> <p>你可以使用 <code>readonly</code>关键字将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Octopus</span> <span class="token punctuation">{</span>
+    <span class="token keyword">readonly</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    <span class="token keyword">readonly</span> numberOfLegs<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token function">constructor</span> <span class="token punctuation">(</span>theName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> theName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>参数属性</code>可以方便地让我们在一个地方定义并初始化一个成员。 更加便捷：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Octopus</span> <span class="token punctuation">{</span>
+    <span class="token keyword">readonly</span> numberOfLegs<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">readonly</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>参数属性通过给构造函数参数前面添加一个访问限定符来声明。 使用 <code>private</code>限定一个参数属性会声明并初始化一个私有成员；对于 <code>public</code>和 <code>protected</code>来说也是一样。</p> <blockquote><p>在 js 中的类中，可以在方法中使用<code>this.property</code>动态添加实例属性。这在 ts 中是不允许的。</p></blockquote> <h2 id="_3、存取器"><a href="#_3、存取器" class="header-anchor">#</a> 3、存取器</h2> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> _fullName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">get</span> <span class="token function">fullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_fullName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">set</span> <span class="token function">fullName</span><span class="token punctuation">(</span>newName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>passcode <span class="token operator">&amp;&amp;</span> passcode <span class="token operator">==</span> <span class="token string">&quot;secret passcode&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>_fullName <span class="token operator">=</span> newName<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Error: Unauthorized update of employee!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_4、静态属性"><a href="#_4、静态属性" class="header-anchor">#</a> 4、静态属性</h2> <p>静态属性必须通过<code>类名.属性名</code>的方式访问，在类中也一样。</p> <h2 id="_5、抽象类"><a href="#_5、抽象类" class="header-anchor">#</a> 5、抽象类</h2> <p>用于其他派生类的基类，本身不能被实例化，但能声明。可以包含成员的实现细节，也能像接口一样声明一些方法要求派生类去实现，需要用<code>abstract</code>关键字修饰。</p> <blockquote><p>抽象类就像是普通基类和接口的一种功能上的组合。</p></blockquote> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Department</span> <span class="token punctuation">{</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Department name: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">abstract</span> <span class="token function">printMeeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span> <span class="token comment">// 必须在派生类中实现</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AccountingDepartment</span> <span class="token keyword">extends</span> <span class="token class-name">Department</span> <span class="token punctuation">{</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">'Accounting and Auditing'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在派生类的构造函数中必须调用 super()</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">printMeeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The Accounting Department meets each Monday at 10am.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">generateReports</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Generating accounting reports...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> department<span class="token operator">:</span> Department<span class="token punctuation">;</span> <span class="token comment">// 允许创建一个对抽象类型的引用</span>
+department <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 错误: 不能创建一个抽象类的实例</span>
+department <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccountingDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 允许对一个抽象子类进行实例化和赋值</span>
+department<span class="token punctuation">.</span><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+department<span class="token punctuation">.</span><span class="token function">printMeeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+department<span class="token punctuation">.</span><span class="token function">generateReports</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 错误: 方法在声明的抽象类中不存在</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/27/2022, 7:36:47 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3b186049.js" defer></script><script src="/assets/js/2.e94ab2b6.js" defer></script><script src="/assets/js/64.d5368691.js" defer></script>
+  </body>
+</html>

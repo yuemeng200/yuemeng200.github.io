@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 1 章 数据类型 | yuemeng</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="shortcut icon" href="/favicon.svg">
+    <script src="/scripts/scrollToHash.js"></script>
+    <meta name="description" content="Truelove always keeps one upward.">
+    
+    <link rel="preload" href="/assets/css/0.styles.c2f6d75e.css" as="style"><link rel="preload" href="/assets/js/app.3b186049.js" as="script"><link rel="preload" href="/assets/js/2.e94ab2b6.js" as="script"><link rel="preload" href="/assets/js/62.9415b471.js" as="script"><link rel="prefetch" href="/assets/js/10.1b8b1bdc.js"><link rel="prefetch" href="/assets/js/11.f6ee59c1.js"><link rel="prefetch" href="/assets/js/12.32b93a79.js"><link rel="prefetch" href="/assets/js/13.d8390faa.js"><link rel="prefetch" href="/assets/js/14.82ef8a79.js"><link rel="prefetch" href="/assets/js/15.fedb0b93.js"><link rel="prefetch" href="/assets/js/16.f0d32201.js"><link rel="prefetch" href="/assets/js/17.b94d94f2.js"><link rel="prefetch" href="/assets/js/18.e2e57a04.js"><link rel="prefetch" href="/assets/js/19.02cbb0aa.js"><link rel="prefetch" href="/assets/js/20.f1219c33.js"><link rel="prefetch" href="/assets/js/21.901186b4.js"><link rel="prefetch" href="/assets/js/22.70a4121c.js"><link rel="prefetch" href="/assets/js/23.cc50d200.js"><link rel="prefetch" href="/assets/js/24.91f618f6.js"><link rel="prefetch" href="/assets/js/25.544035a1.js"><link rel="prefetch" href="/assets/js/26.6f6840ac.js"><link rel="prefetch" href="/assets/js/27.18b1a54f.js"><link rel="prefetch" href="/assets/js/28.91b35907.js"><link rel="prefetch" href="/assets/js/29.6624a5c9.js"><link rel="prefetch" href="/assets/js/3.ebdb30f6.js"><link rel="prefetch" href="/assets/js/30.0c3c6b6e.js"><link rel="prefetch" href="/assets/js/31.1ce92adf.js"><link rel="prefetch" href="/assets/js/32.d565cc5f.js"><link rel="prefetch" href="/assets/js/33.8859364c.js"><link rel="prefetch" href="/assets/js/34.50845b96.js"><link rel="prefetch" href="/assets/js/35.df02a466.js"><link rel="prefetch" href="/assets/js/36.562ccd35.js"><link rel="prefetch" href="/assets/js/37.e9900fb2.js"><link rel="prefetch" href="/assets/js/38.dbc64880.js"><link rel="prefetch" href="/assets/js/39.72e1ae6b.js"><link rel="prefetch" href="/assets/js/4.61bc38da.js"><link rel="prefetch" href="/assets/js/40.2eb3817a.js"><link rel="prefetch" href="/assets/js/41.50eca4d2.js"><link rel="prefetch" href="/assets/js/42.1d4bd81c.js"><link rel="prefetch" href="/assets/js/43.2b19913b.js"><link rel="prefetch" href="/assets/js/44.6a01feb1.js"><link rel="prefetch" href="/assets/js/45.c8a813c7.js"><link rel="prefetch" href="/assets/js/46.c005c3f7.js"><link rel="prefetch" href="/assets/js/47.813d910c.js"><link rel="prefetch" href="/assets/js/48.5462ce62.js"><link rel="prefetch" href="/assets/js/49.c0fe0118.js"><link rel="prefetch" href="/assets/js/5.834ce697.js"><link rel="prefetch" href="/assets/js/50.b129d4fc.js"><link rel="prefetch" href="/assets/js/51.d19e1b52.js"><link rel="prefetch" href="/assets/js/52.f51e16c0.js"><link rel="prefetch" href="/assets/js/53.8a459191.js"><link rel="prefetch" href="/assets/js/54.1baf8b2b.js"><link rel="prefetch" href="/assets/js/55.52d61b66.js"><link rel="prefetch" href="/assets/js/56.c2f38d33.js"><link rel="prefetch" href="/assets/js/57.c223766a.js"><link rel="prefetch" href="/assets/js/58.eb94a146.js"><link rel="prefetch" href="/assets/js/59.93293c13.js"><link rel="prefetch" href="/assets/js/6.a0e1c743.js"><link rel="prefetch" href="/assets/js/60.f4e2ea1f.js"><link rel="prefetch" href="/assets/js/61.8998ea01.js"><link rel="prefetch" href="/assets/js/63.32578194.js"><link rel="prefetch" href="/assets/js/64.d5368691.js"><link rel="prefetch" href="/assets/js/65.02dc5ff1.js"><link rel="prefetch" href="/assets/js/66.4732b538.js"><link rel="prefetch" href="/assets/js/67.8a4ed632.js"><link rel="prefetch" href="/assets/js/68.857c65ff.js"><link rel="prefetch" href="/assets/js/69.d0d7d965.js"><link rel="prefetch" href="/assets/js/7.2ba3147b.js"><link rel="prefetch" href="/assets/js/70.20af285a.js"><link rel="prefetch" href="/assets/js/71.a108346d.js"><link rel="prefetch" href="/assets/js/72.a7440fcc.js"><link rel="prefetch" href="/assets/js/73.d29d7d6b.js"><link rel="prefetch" href="/assets/js/74.5228b8d9.js"><link rel="prefetch" href="/assets/js/8.f8eacf8d.js"><link rel="prefetch" href="/assets/js/9.900f735c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c2f6d75e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.svg" alt="yuemeng" class="logo"> <span class="site-name can-hide">yuemeng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link router-link-active">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link router-link-active">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-1-章-数据类型"><a href="#第-1-章-数据类型" class="header-anchor">#</a> 第 1 章 数据类型</h1> <p>包括与JS表现一致的基本数据类型<code>boolean</code>、<code>number</code>、<code>string</code>、<code>null</code>、<code>undefined</code>和<code>symbol</code>。</p> <p>复合数据类型<code>array</code>、<code>tuple</code>、<code>enum</code>、<code>any</code>、<code>void</code>、<code>never</code>和<code>object</code>。</p> <p>定义声明变量使用以下格式：</p> <div class="language-tsx extra-class"><pre class="language-tsx"><code><span class="token keyword">let</span> obj<span class="token operator">:</span> type <span class="token operator">=</span> something<span class="token punctuation">;</span>
+</code></pre></div><h2 id="_1、array"><a href="#_1、array" class="header-anchor">#</a> 1、array</h2> <p><code>TYPE[]</code>或者<code>Array&lt;TYPE&gt;</code></p> <div class="language-tsx extra-class"><pre class="language-tsx"><code><span class="token keyword">let</span> list<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> list<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>这个数组比普通 js 要严格，要求数组元素类型相同。除非使用<code>Array[any]</code>。</p></blockquote> <h2 id="_2、tuple"><a href="#_2、tuple" class="header-anchor">#</a> 2、tuple</h2> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// Declare a tuple type</span>
+<span class="token keyword">let</span> x<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Initialize it</span>
+x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// OK</span>
+<span class="token comment">// Initialize it incorrectly</span>
+x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Error</span>
+</code></pre></div><p><img src="img/image-20220426142012847.png" alt="image-20220426142012847"></p> <h2 id="_3、enum"><a href="#_3、enum" class="header-anchor">#</a> 3、enum</h2> <p>注意枚举是个类型，而不是一种值，在行为上类似一个对象上的映射操作。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">enum</span> Color <span class="token punctuation">{</span>Red<span class="token punctuation">,</span> Green<span class="token punctuation">,</span> Blue<span class="token punctuation">}</span>
+<span class="token keyword">let</span> c<span class="token operator">:</span> Color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Red
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token keyword">typeof</span> c<span class="token punctuation">)</span>	<span class="token comment">// 0, number</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Color<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">)</span>	<span class="token comment">// Red</span>
+</code></pre></div><h2 id="_4、any-、void和never"><a href="#_4、any-、void和never" class="header-anchor">#</a> 4、any 、void和never</h2> <p>我们会想要为那些在编程阶段还不清楚类型的变量指定一个类型，算是与js<code>兼容</code>的一种方案。</p> <blockquote><p>注意这和声明时不指定类型是有区别的，不指定时会得到推理的类型，类型照样是固定的。</p></blockquote> <p>和<code>any</code>相反的有一个<code>void</code>类型，代表没有类型，一般只用作修饰没有返回值的函数：</p> <div class="language-tsx extra-class"><pre class="language-tsx"><code><span class="token keyword">function</span> <span class="token function">warnUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;This is my warning message&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>还有一个<code>never</code>类型，它代表一种永远无法抵达的状态，是所有其他类型的子类型，一般不会用到。</p> <h2 id="_5、null-和-undefined"><a href="#_5、null-和-undefined" class="header-anchor">#</a> 5、null 和 undefined</h2> <p>这两个类型都只有一个值，就是他们本身。</p> <p>这两个类型是其他所有类型的<code>子类型</code>，即如下操作是合法的：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">let</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token builtin">number</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+</code></pre></div><p>当你指定了<code>--strictNullChecks</code>标记，<code>null</code>和<code>undefined</code>只能赋值给<code>void</code>和它们各自。 这能避免 <em>很多</em>常见的问题。</p> <blockquote><p>一般建议开启这个标记。当真正需要使用这两个值赋值到其他类型时可以使用联合类型。</p></blockquote> <h2 id="_6、类型断言"><a href="#_6、类型断言" class="header-anchor">#</a> 6、类型断言</h2> <p><code>any</code>在某种程度上临时关闭了类型检查的特性，如果你确定发生了什么，可以手动开启：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// 方式1</span>
+<span class="token keyword">let</span> someValue<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> <span class="token string">&quot;this is a string&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> strLength<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span>someValue<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+
+<span class="token comment">// 方式2</span>
+<span class="token keyword">let</span> someValue<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> <span class="token string">&quot;this is a string&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> strLength<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span>someValue <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>在<code>JSX</code>中只能使用第二种方式。</p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/26/2022, 7:13:18 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3b186049.js" defer></script><script src="/assets/js/2.e94ab2b6.js" defer></script><script src="/assets/js/62.9415b471.js" defer></script>
+  </body>
+</html>
