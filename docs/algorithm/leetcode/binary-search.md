@@ -95,12 +95,79 @@ var getMore = function (nums, target) {
 };
 ```
 
+## [153] 寻找旋转排序数组中的最小值
+
+`medium`
+
+对`无重复元素`有序数组旋转，相当于把后面的片段挪到前面来。最小值就在有序性突变处。
+使用二分查找会把当前数组隔断为两部分，最小值一定在不单调的那一半。直到所查找的数组本身单调了，最小值就是最左侧的元素了。
+注意每次找到不连续的区间，最左侧元素肯定不是最小值，最右侧的可能是，这就是为什么判断分支后对`left`和`right`的操作不同。
+
+```js
+var findMin = function (nums) {
+  let left = 0,
+    right = nums.length - 1;
+  while (true) {
+    if (nums[left] <= nums[right]) return nums[left];
+    let mid = left + ((right - left) >> 1);
+    if (nums[mid] > nums[right]) {
+      left = mid + 1;
+    } else {
+      left++; // 这里也是个小优化
+      right = mid;
+    }
+  }
+};
+```
+
+我上面的写法虽然是做了一些优化，可以在有序时立即停止，但这种写法容易写出问题，还是按照二分的模板来写比较稳妥：
+
+```js
+var findMin = function (nums) {
+  let low = 0;
+  let high = nums.length - 1;
+  while (low < high) {
+    const pivot = low + Math.floor((high - low) / 2);
+    if (nums[pivot] < nums[high]) {
+      high = pivot;
+    } else {
+      low = pivot + 1;
+    }
+  }
+  return nums[low];
+};
+```
+
+## [154] 寻找旋转排序数组中的最小值 II
+
+这个和上面差不多，就是数组元素可能有重复的。
+注意此时可能会碰到`nums[pivot]==nums[high]`的情景，此时是无法判断边界点是在哪边的（甚至根本没有边界点），只有通过线性方式缩小当前状态。
+
+```js
+var findMin = function (nums) {
+  let low = 0;
+  let high = nums.length - 1;
+  while (low < high) {
+    const pivot = low + Math.floor((high - low) / 2);
+    if (nums[pivot] < nums[high]) {
+      high = pivot;
+    } else if (nums[pivot] > nums[high]) {
+      low = pivot + 1;
+    } else {
+      high -= 1; // 线性收缩
+    }
+  }
+  return nums[low];
+};
+```
+
 ## [704] 二分查找
 
 但凡有涉及`有序数组`的问题都要首先考虑二分查找。
 一般我喜欢用`闭区间`，所以此时有效条件就是`left<=right`。
 还要注意每次只动一个边界。
-js 的位运算符优先级低于算术运算符。
+
+> js 的位运算符优先级低于算术运算符。
 
 ```js
 var search = function (nums, target) {

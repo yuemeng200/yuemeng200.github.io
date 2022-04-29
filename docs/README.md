@@ -24,7 +24,7 @@ actionLink: /topics/js/
     </p>
     <p>
       <span>专题：</sapn>
-      Node.js、<a href="others/rust">Rust</a>、Mysql、MongoDB、Neo4j、Django、SpringBoot、Nest.js...
+      Node.js、<a href="others/rust">Rust</a>、Mysql、MongoDB、Neo4j、Django、SpringBoot、Nest.js....
     </p>
   </div>
 </div>
