@@ -105,6 +105,7 @@ let number = if condition { 5 } else { 6 };
 #### loop
 
 支持嵌套循环时使用`循环标签`：
+
 ```rust {3,13}
 fn main() {
     let mut count = 0;
@@ -128,9 +129,11 @@ fn main() {
     println!("End count = {}", count);
 }
 ```
+
 此时能直接从内层循环直接退出外层循环。
 
 还能让循环返回值：
+
 ```rust {8}
 fn main() {
     let mut counter = 0;
@@ -185,6 +188,3 @@ fn main() {
     println!("LIFTOFF!!!");
 }
 ```
-
-
-
