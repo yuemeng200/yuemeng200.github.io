@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 5 章 类 | yuemeng</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="shortcut icon" href="/favicon.svg">
+    <script src="/scripts/scrollToHash.js"></script>
+    <meta name="description" content="Truelove always keeps one upward.">
+    
+    <link rel="preload" href="/assets/css/0.styles.4dfdf963.css" as="style"><link rel="preload" href="/assets/js/app.1a3411c8.js" as="script"><link rel="preload" href="/assets/js/2.d85af416.js" as="script"><link rel="preload" href="/assets/js/61.438af06d.js" as="script"><link rel="prefetch" href="/assets/js/10.deb62bfe.js"><link rel="prefetch" href="/assets/js/11.441c0c66.js"><link rel="prefetch" href="/assets/js/12.016079b5.js"><link rel="prefetch" href="/assets/js/13.355db87e.js"><link rel="prefetch" href="/assets/js/14.c6bb4166.js"><link rel="prefetch" href="/assets/js/15.11b9b0db.js"><link rel="prefetch" href="/assets/js/16.a49dfe9f.js"><link rel="prefetch" href="/assets/js/17.b53cba47.js"><link rel="prefetch" href="/assets/js/18.15905a6a.js"><link rel="prefetch" href="/assets/js/19.0ac9756f.js"><link rel="prefetch" href="/assets/js/20.dcad3eb0.js"><link rel="prefetch" href="/assets/js/21.213490e5.js"><link rel="prefetch" href="/assets/js/22.24147a3b.js"><link rel="prefetch" href="/assets/js/23.6f78f2ce.js"><link rel="prefetch" href="/assets/js/24.9cf961dc.js"><link rel="prefetch" href="/assets/js/25.5a19d428.js"><link rel="prefetch" href="/assets/js/26.d253a301.js"><link rel="prefetch" href="/assets/js/27.56ecd925.js"><link rel="prefetch" href="/assets/js/28.a7f7069d.js"><link rel="prefetch" href="/assets/js/29.85845767.js"><link rel="prefetch" href="/assets/js/3.b07c1551.js"><link rel="prefetch" href="/assets/js/30.f39f96df.js"><link rel="prefetch" href="/assets/js/31.bc11ea6d.js"><link rel="prefetch" href="/assets/js/32.daec7e56.js"><link rel="prefetch" href="/assets/js/33.0bcc2d4f.js"><link rel="prefetch" href="/assets/js/34.1025a276.js"><link rel="prefetch" href="/assets/js/35.d812f080.js"><link rel="prefetch" href="/assets/js/36.95544f81.js"><link rel="prefetch" href="/assets/js/37.40d3a615.js"><link rel="prefetch" href="/assets/js/38.d1fafb6b.js"><link rel="prefetch" href="/assets/js/39.2898e977.js"><link rel="prefetch" href="/assets/js/4.8bbc1feb.js"><link rel="prefetch" href="/assets/js/40.0229774b.js"><link rel="prefetch" href="/assets/js/41.93ae410f.js"><link rel="prefetch" href="/assets/js/42.ec013e2f.js"><link rel="prefetch" href="/assets/js/43.2080dfa8.js"><link rel="prefetch" href="/assets/js/44.444b0ded.js"><link rel="prefetch" href="/assets/js/45.caf03efa.js"><link rel="prefetch" href="/assets/js/46.c696476e.js"><link rel="prefetch" href="/assets/js/47.58380a32.js"><link rel="prefetch" href="/assets/js/48.d6cc98f3.js"><link rel="prefetch" href="/assets/js/49.69b484a9.js"><link rel="prefetch" href="/assets/js/5.d7385b7f.js"><link rel="prefetch" href="/assets/js/50.3919928f.js"><link rel="prefetch" href="/assets/js/51.979a7306.js"><link rel="prefetch" href="/assets/js/52.862da074.js"><link rel="prefetch" href="/assets/js/53.0eb59bce.js"><link rel="prefetch" href="/assets/js/54.08fae824.js"><link rel="prefetch" href="/assets/js/55.e22d9a67.js"><link rel="prefetch" href="/assets/js/56.e651bbd2.js"><link rel="prefetch" href="/assets/js/57.c819b4bd.js"><link rel="prefetch" href="/assets/js/58.60089182.js"><link rel="prefetch" href="/assets/js/59.4f82d71f.js"><link rel="prefetch" href="/assets/js/6.0a013238.js"><link rel="prefetch" href="/assets/js/60.02c5e479.js"><link rel="prefetch" href="/assets/js/62.567135c1.js"><link rel="prefetch" href="/assets/js/63.3d05cedd.js"><link rel="prefetch" href="/assets/js/64.ac6839a1.js"><link rel="prefetch" href="/assets/js/65.2f46d980.js"><link rel="prefetch" href="/assets/js/66.f94b9d6e.js"><link rel="prefetch" href="/assets/js/67.e5016b1f.js"><link rel="prefetch" href="/assets/js/68.772ee0a0.js"><link rel="prefetch" href="/assets/js/69.0f0081f0.js"><link rel="prefetch" href="/assets/js/7.19057d7a.js"><link rel="prefetch" href="/assets/js/70.41aff2d4.js"><link rel="prefetch" href="/assets/js/71.abfebce5.js"><link rel="prefetch" href="/assets/js/72.b3b0141f.js"><link rel="prefetch" href="/assets/js/73.33a27a83.js"><link rel="prefetch" href="/assets/js/74.cadfa320.js"><link rel="prefetch" href="/assets/js/75.e8c2ae4b.js"><link rel="prefetch" href="/assets/js/76.e6bb0129.js"><link rel="prefetch" href="/assets/js/77.dd249181.js"><link rel="prefetch" href="/assets/js/8.a28dec3a.js"><link rel="prefetch" href="/assets/js/9.f91f74cd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4dfdf963.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.svg" alt="yuemeng" class="logo"> <span class="site-name can-hide">yuemeng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link router-link-active">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端技术专题" class="dropdown-title"><span class="title">前端技术专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端技术专题" class="mobile-dropdown-title"><span class="title">前端技术专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/topics/js/" class="nav-link router-link-active">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/topics/ts/" class="nav-link">
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/topics/vue/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-item"><!----> <a href="/topics/broswer/" class="nav-link">
+  浏览器
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/leetcode/" class="nav-link">
+  题解
+</a></li><li class="dropdown-item"><!----> <a href="/algorithm/summary/" class="nav-link">
+  总结
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他专题" class="dropdown-title"><span class="title">其他专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他专题" class="mobile-dropdown-title"><span class="title">其他专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/others/node/" class="nav-link">
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/others/rust/" class="nav-link">
+  rust
+</a></li><li class="dropdown-item"><!----> <a href="/others/electron/" class="nav-link">
+  Electron
+</a></li><li class="dropdown-item"><!----> <a href="/others/nest/" class="nav-link">
+  Nest.js
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/cp/" class="nav-link">
+  编译原理
+</a></li><li class="dropdown-item"><!----> <a href="/cs/os/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/cs/cn.html" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><a href="/tools/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/thoughts/" class="nav-link">
+  随想
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/topics/js/" aria-current="page" class="sidebar-link">Javascript</a></li><li><a href="/topics/js/1-basic.html" class="sidebar-link">第 1 章 基础部分</a></li><li><a href="/topics/js/2-object.html" class="sidebar-link">第 2 章 对象</a></li><li><a href="/topics/js/3-array.html" class="sidebar-link">第 3 章 数组</a></li><li><a href="/topics/js/4-function.html" class="sidebar-link">第 4 章 函数</a></li><li><a href="/topics/js/5-class.html" aria-current="page" class="active sidebar-link">第 5 章 类</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_1、类的定义" class="sidebar-link">1、类的定义</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_1-工厂方法" class="sidebar-link">（1）工厂方法</a></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_2-构造函数方法" class="sidebar-link">（2）构造函数方法</a></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_3-class-关键字方法" class="sidebar-link">（3）class 关键字方法</a></li></ul></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_2、类的方法和字段" class="sidebar-link">2、类的方法和字段</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_1-静态方法" class="sidebar-link">（1）静态方法</a></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_2-私有字段" class="sidebar-link">（2）私有字段</a></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_3-静态字段" class="sidebar-link">（3）静态字段</a></li></ul></li><li class="sidebar-sub-header"><a href="/topics/js/5-class.html#_3、继承" class="sidebar-link">3、继承</a></li></ul></li><li><a href="/topics/js/6-module.html" class="sidebar-link">第 6 章 模块</a></li><li><a href="/topics/js/7-iterator.html" class="sidebar-link">第 7 章 迭代器</a></li><li><a href="/topics/js/8-async.html" class="sidebar-link">第 8 章 异步</a></li><li><a href="/topics/js/9-meta.html" class="sidebar-link">第 9 章 元编程</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-5-章-类"><a href="#第-5-章-类" class="header-anchor">#</a> 第 5 章 类</h1> <h2 id="_1、类的定义"><a href="#_1、类的定义" class="header-anchor">#</a> 1、类的定义</h2> <p>JavaScript 一直允许定义类，但直到 ES6 才支持 class 关键字的形式来创建，本章从老式的方法讲起，对比其定义的形式，事实上在原理上是相同的。</p> <h3 id="_1-工厂方法"><a href="#_1-工厂方法" class="header-anchor">#</a> （1）工厂方法</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token parameter">from<span class="token punctuation">,</span> to</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> r <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>range<span class="token punctuation">.</span>methods<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  r<span class="token punctuation">.</span>from <span class="token operator">=</span> from<span class="token punctuation">;</span>
+  r<span class="token punctuation">.</span>to <span class="token operator">=</span> to<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> r<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+range<span class="token punctuation">.</span>methods <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 里面写继承的方法，整个花括号为原型的字面量</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这里把类的原型写成工厂函数的属性只是一种书写习惯。此种生成对象的方式是一种纯函数的方式，工厂函数的关键在于<code>Object.create()</code>函数的调用。</p> <h3 id="_2-构造函数方法"><a href="#_2-构造函数方法" class="header-anchor">#</a> （2）构造函数方法</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Range</span><span class="token punctuation">(</span><span class="token parameter">from<span class="token punctuation">,</span> to</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>from <span class="token operator">=</span> from<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>to <span class="token operator">=</span> to<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token class-name">Range</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 同上</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Range</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>还记得之前说每个函数都有<code>prototype</code>属性吗?只要给一个函数的 prototype 属性绑定一个有效对象，该函数就能当作构造函数使用，该 prototype 属性将作为新生成对象的原型。</p> <blockquote><p>箭头函数没有 prototype 属性，不能用作构造函数。</p></blockquote> <p>构造函数充当类的外在表现，构造函数的名字作为类的名字，通过构造函数来使用一个类。</p> <p>下面介绍<code>instanceof</code>操作符，用来检查对象是不是属于某一类：</p> <div class="language-js extra-class"><pre class="language-js"><code>r <span class="token keyword">instanceof</span> <span class="token class-name">Range</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div><blockquote><p>事实上，该操作符检查的依据并非该对象是否是通过<code>Range()</code>构造函数创建，而是看该对象的原型（原型链）是否是<code>Range.prototype</code>，比如我们把一个叫<code>Strange()</code>的函数的 prototype 属性设为<code>Range.prototype</code>，则通过该构造函数创建的对象也能通过上面的测试。</p></blockquote> <h3 id="_3-class-关键字方法"><a href="#_3-class-关键字方法" class="header-anchor">#</a> （3）class 关键字方法</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Range</span><span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">from<span class="token punctuation">,</span> to</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>from <span class="token operator">=</span> from<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>to <span class="token operator">=</span> to<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 类的方法</span>
+    <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li><p>类体中函数使用字面量中的简写方法。</p></li> <li><p>类名后可以通过<code>extends</code>关键字继承其他类。</p></li> <li><p>类体中代码默认处于严格模式。</p></li> <li><p>类声明不提升。</p></li></ul> <blockquote><p>后面的讨论都针对这种形式定义的类。</p></blockquote> <h2 id="_2、类的方法和字段"><a href="#_2、类的方法和字段" class="header-anchor">#</a> 2、类的方法和字段</h2> <h3 id="_1-静态方法"><a href="#_1-静态方法" class="header-anchor">#</a> （1）静态方法</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 通过类名调用静态方法</span>
+<span class="token constant">A</span><span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_2-私有字段"><a href="#_2-私有字段" class="header-anchor">#</a> （2）私有字段</h3> <p>目前一般通过 this 写在构造函数或方法中，但最新的标准也开始支持作为字段写在类体中。</p> <h3 id="_3-静态字段"><a href="#_3-静态字段" class="header-anchor">#</a> （3）静态字段</h3> <p>目前一般把静态字段写在类体外，最新标准采用以下形式：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    # size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">get</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>#size<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_3、继承"><a href="#_3、继承" class="header-anchor">#</a> 3、继承</h2> <blockquote><p>这里假设你已经有了 Java 编程基础。</p></blockquote> <p>关于在构造函数中使用<code>super()</code>：</p> <ul><li>子类必须使用<code>super()</code>调用父类构造函数。</li> <li>子类没有定义构造函数时，解释器会默认创建一个，且会自动调用<code>super()</code>。</li> <li>在调用<code>super()</code>以前不能在构造函数中使用<code>this</code>。确保父类先于子类初始化。</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/4/2022, 7:32:10 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/topics/js/4-function.html" class="prev">
+        第 4 章 函数
+      </a></span> <span class="next"><a href="/topics/js/6-module.html">
+        第 6 章 模块
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1a3411c8.js" defer></script><script src="/assets/js/2.d85af416.js" defer></script><script src="/assets/js/61.438af06d.js" defer></script>
+  </body>
+</html>
