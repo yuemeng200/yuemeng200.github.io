@@ -135,7 +135,7 @@ export default defineConfig({
         "5-dom",
       ],
       "/topics/css/": ["", "1-selector", "2-display", "3-box-model", "4-theme"],
-      "/others/rust/": ["", "basic", "datatype", "owners-ship"],
+      "/others/rust/": ["", "1-basic", "2-owners-ship", "3-datatype"],
       "/algorithm/leetcode/": [
         "",
         "1-linked-list",
