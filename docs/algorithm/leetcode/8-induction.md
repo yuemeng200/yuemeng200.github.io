@@ -39,3 +39,23 @@ var countDigitOne = function (n) {
   return ans;
 };
 ```
+
+### [1823] 找出游戏的获胜者
+
+这是经典的[约瑟夫环问题](https://leetcode-cn.com/circle/article/BOoxAL/)。最直观的解法是使用`循环链表`，时间复杂度为`O(nk)`（通过对 k 取余还可以优化一些），这在有指针的语言还勉强可以接受，如果使用数组模拟比较就比较难受。
+下面主要介绍这个数学归纳法：
+$$
+f(n, k) = (k+ f(n - 1, k) - 1)\mod n + 1
+$$
+于是就可以用迭代法解这道题：
+
+```js
+var findTheWinner = function(n, k) {
+    let winner = 1;
+    for (let i = 2; i <= n; i++) {
+        winner = (k + winner - 1) % i + 1;
+    }
+    return winner;
+};
+```
+

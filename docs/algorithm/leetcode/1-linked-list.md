@@ -48,6 +48,87 @@ var mergeTwoLists = function (list1, list2) {
 };
 ```
 
+## [23] 合并 k 个有序链表
+
+有两个方法，`优先队列`和`分治法`，下面使用的优先队列，值得注意的是，这里并没有把链表所有节点摘出来放到优先队列，而是只把链表的 head 放进去，足够找到当前的最小值了。
+
+```java
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) {
+            return null;
+        }
+        ListNode dummyHead = new ListNode(0);
+        ListNode curr = dummyHead;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode o1, ListNode o2) {
+                return o1.val - o2.val;
+            }
+        });
+        for (ListNode list : lists) {
+            if (list == null) {
+                continue;
+            }
+            pq.add(list);
+        }
+        while (!pq.isEmpty()) {
+            ListNode nextNode = pq.poll();
+            curr.next = nextNode;
+            curr = curr.next;
+            if (nextNode.next != null) {
+                pq.add(nextNode.next);
+            }
+        }
+        return dummyHead.next;
+    }
+}
+```
+
+## [25] K 个一组翻转链表
+
+这个是**206.反转链表**的进阶版，重点是要把若干段反转后的链表拼接起来，需要小心一点。还有这里说最后少于 k 的段不反转了，所以反转之前还要事先判断下。
+
+> 给第一段的 head 加个 hair 使得行为一致。
+
+```js
+const myReverse = (head, tail) => {
+  let prev = tail.next;
+  let p = head;
+  while (prev !== tail) {
+    const nex = p.next;
+    p.next = prev;
+    prev = p;
+    p = nex;
+  }
+  return [tail, head];
+};
+var reverseKGroup = function (head, k) {
+  const hair = new ListNode(0);
+  hair.next = head;
+  let pre = hair;
+
+  while (head) {
+    let tail = pre;
+    // 查看剩余部分长度是否大于等于 k
+    for (let i = 0; i < k; ++i) {
+      tail = tail.next;
+      if (!tail) {
+        return hair.next;
+      }
+    }
+    const nex = tail.next;
+    [head, tail] = myReverse(head, tail);
+    // 把子链表重新接回原链表
+    pre.next = head;
+    tail.next = nex;
+    pre = tail;
+    head = tail.next;
+  }
+  return hair.next;
+};
+```
+
 ## [141] 环形链表
 
 ### 递归标记法
