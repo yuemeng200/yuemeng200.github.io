@@ -35,7 +35,7 @@
 
 - v-bind:[动态参数]="value"可用。
 - v-on:<动作>.<修饰符>可用。
-- `v-if`直接控制 dom 元素是否被生成，而`v-show`只是控制`display`属性，切换时不卸载组件实例(而`visibility: hidden`只是视觉上不可见)。详情可查看：[v-if 与 v-show](https://vue3js.cn/interview/vue/show_if.html#%E4%B8%89%E3%80%81v-show%E4%B8%8Ev-if%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90)
+- `v-if`直接控制 dom 元素是否被生成，而`v-show`只是控制`display`属性，切换时不卸载组件实例(而`visibility: hidden`只是视觉上不可见，保持原来位置)。详情可查看：[v-if 与 v-show](https://vue3js.cn/interview/vue/show_if.html#%E4%B8%89%E3%80%81v-show%E4%B8%8Ev-if%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90)
 - vue 会尽量高效地复用元素，可以给元素声明不同的`key`来强制替换。可以使用改变`key`的方式强制重新加载子组件。
 - `v-for`的标准格式：` <li v-for="(item, index) in items" :key="item.key"></li>`，也能遍历对象。
 - 我们可能会需要有选择地使用`v-for`内容，不要把`v-if`与之写在同一元素上，使用`template`。

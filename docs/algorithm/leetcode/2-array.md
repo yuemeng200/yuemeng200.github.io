@@ -182,3 +182,32 @@ var findDisappearedNumbers = function (nums) {
   return res;
 };
 ```
+
+## [713] 乘积小于 K 的子数组
+
+给你一个整数数组 nums 和一个整数 k ，请你返回子数组内所有元素的乘积严格小于 k 的连续子数组的数目。
+
+> 注意这里的 nums[i]>0，不然这道题会麻烦很多。
+
+大眼一看，滑动窗口问题。
+对于满足条件的子数组，它的所有子数组也是满足条件的，所以这里就可以剔除一部分满足的情况，但如此判断的子数组会产生重复计算，但包含数组结尾的子数组一定是当前范围产生的新解。
+于是`右指针`确定为一个判断周期，`左指针`用来确立当前周期满足条件的数组边界。
+精妙！
+
+```js
+var numSubarrayProductLessThanK = function (nums, k) {
+  let n = nums.length,
+    ret = 0;
+  let prod = 1,
+    i = 0;
+  for (let j = 0; j < n; j++) {
+    prod *= nums[j];
+    while (i <= j && prod >= k) {
+      prod /= nums[i];
+      i++;
+    }
+    ret += j - i + 1;
+  }
+  return ret;
+};
+```
