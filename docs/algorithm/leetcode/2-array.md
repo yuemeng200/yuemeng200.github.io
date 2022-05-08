@@ -158,7 +158,32 @@ var maxProfit = function (prices) {
 };
 ```
 
-<!-- ## [171] Excel 表列序号 -->
+## [442] 数组中重复的数据
+
+原地交换，一看到数组长度 n，范围 1-n，基本上就是这个操作。
+
+```js
+var findDuplicates = function (nums) {
+  const swap = (nums, index1, index2) => {
+    const temp = nums[index1];
+    nums[index1] = nums[index2];
+    nums[index2] = temp;
+  };
+  const n = nums.length;
+  for (let i = 0; i < n; ++i) {
+    while (nums[i] != nums[nums[i] - 1]) {
+      swap(nums, i, nums[i] - 1);
+    }
+  }
+  const ans = [];
+  for (let i = 0; i < n; ++i) {
+    if (nums[i] - 1 !== i) {
+      ans.push(nums[i]);
+    }
+  }
+  return ans;
+};
+```
 
 ## [448] 找到所有数组中消失的数字
 
