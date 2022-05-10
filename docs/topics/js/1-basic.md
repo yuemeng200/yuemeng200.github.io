@@ -157,6 +157,8 @@ str.includes(searchString[, position])
 
 #### split()
 
+谨记，并不是默认以空格作为分隔符。
+
 #### replace()
 
 **`replace()`** 方法返回一个由替换值（`replacement`）替换部分或所有的模式（`pattern`）匹配项后的符串。模式可以是一个**字符串**或者一个**正则表达式**，替换值可以是一个字符串或者一个每次匹配都要调**回调函数\*\***如果`pattern`是字符串，则仅替换第一个匹配项。\*\*所以常用正则表达式使用全局匹配``jslet a = "first second third";console.log(a.replace(" ", "%20")); // "first%20second third"console.log(a.repalce(/ /g, "%20")); // "first%20second%20third"`
