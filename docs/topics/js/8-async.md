@@ -152,6 +152,37 @@ function wait(duration) {
 }
 ```
 
+### （4）实现 Promsie
+
+#### 版本1
+
+https://zhuanlan.zhihu.com/p/58428287
+
+```js
+class Promise {
+  callbacks = [];
+  constructor(fn) {
+    fn(this._resolve.bind(this));
+  }
+  // INFO then 用来收集回调
+  then(onFulfilled) {
+    this.callbacks.push(onFulfilled);
+  }
+  // INFO resolve 即把异步结果传递给回到函数
+  _resolve(value) {
+    this.callbacks.forEach((fn) => fn(value));
+  }
+}
+
+let p = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("5秒");
+  }, 5000);
+}).then((tip) => {
+  console.log(tip);
+});
+```
+
 ## 5、async 和 await 方式
 
 `async`和`await`关键字写异步代码的方式是在期约后提出的，用来简化并隐藏期约，还是为了可读性考虑的，况且引入期约的确比较难以理解。

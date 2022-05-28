@@ -30,4 +30,17 @@
 - color
 - visibility
 - 所有文本属性
-- 
+
+## 2、BFC
+
+块格式化上下文（block format context）
+
+一个BFC块具有独立的对内部元素的管理权限。普通的block是没有这个功能的，最常见的例子就是含有浮动元素的块的塌陷。且普通block之间会发生`margin折叠`。
+
+如何把一个block变为BFC？
+
+- html
+- float
+- absolute
+- inline-block、table-cell、table-caption
+- overflow不为visible

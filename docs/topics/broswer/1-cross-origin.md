@@ -1,8 +1,10 @@
 # 第 1 章 跨域
 
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS)
+
 ## 1、什么是跨域？
 
-浏览器存在同源策略，当 js 脚本请求其他源的网页去读取另一个源（域名、端口、协议）的资源时，发生跨域。
+浏览器限制脚本内发起的跨源（域名、端口、协议）HTTP 请求。 例如，XMLHttpRequest 和 Fetch API 遵循同源策略。
 
 > `<script>`标签引入其他资源（获取到内容直接作为脚本执行）和`表单提交`并不会造成跨域。
 
@@ -25,25 +27,26 @@
   - POST
   - HEAD
 - 请求头：
-  - 用户代理自动设置的首部字段（例如 Connection，User-Agent）
+  - 用户代理自动设置的首部字段（例如 Connection、User-Agent、Host）
   - Accept
   - Accept-Language
   - Content-Language
-  - Last-Event-ID
   - Content-Type
     且只能为`application/x-www-form-urlencoded`、`multipart/form-data`或`text/plain`，不能发`json`
+- 请求中的任意 XMLHttpRequest 对象均没有注册任何事件监听器；XMLHttpRequest 对象可以使用 XMLHttpRequest.upload 属性访问
+- 请求中没有使用 ReadableStream 对象
 
 简单请求会自动添加`origin`字段，值为当前的源地址。
 如果服务器接受了请求，返回的响应的首部应具有`Access-Control-Allow-Origin`字段，值为接受的源地址或者`*`，否则浏览器不会接收该响应。
 
-> 如果需要携带`Cookie`，请求需要配置`withCredentials=true`，响应头中的`Access-Control-Allow-Credentials`字段代表服务器是否同意接受`Cookie`。
+> 如果需要携带`Cookie`，请求需要配置`withCredentials=true`，响应头中的`Access-Control-Allow-Credentials`字段代表服务器是否同意接受`Cookie`，同时此时的`Access-Control-Allow-Origin`不能为通配符。
 > 对于 CORS 响应，`getResponseHeader()`方法默认只能拿到 6 个基本字段：`Cache-Control`、`Content-Language`、`Content-Type`、`Expires`、`Last-Modified`、`Pragma`。如果想拿到服务器设置的其他字段，就必须在响应头的`Access-Control-Expose-Headers`里面指定。
 
 ### (2) 非简单请求
 
-相较简单请求，非简单请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为"预检"请求（preflight）。
+相较简单请求，非简单请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为"预检"请求（preflight），该请求是个`options`请求。
 预检请求会询问服务器当前的请求方法和请求头是否被支持，通过`Access-Control-Request-Method`和`Access-Control-Request-Headers`指定。
-服务器会返回被当前询问的结果响应，同意时还会有`Access-Control-Max-Age`字段，用来指定当前预检许可的有效期。
+服务器会返回被当前询问的结果响应，包含`Access-Control-Allow-X`和`Access-Control-Max-Age`字段，用来指定当前预检许可的有效期。
 之后流程和简单请求一致。
 
 ## 3、JSONP

@@ -77,7 +77,7 @@
 
 #### ④ align-items
 
-`交叉轴`方向上的对齐方式
+`交叉轴`方向上的单行元素的对齐方式
 
 - stretch（`默认`）：拉伸占满所有空间
 - start：靠上
@@ -86,7 +86,7 @@
 
 #### ⑤ align-content
 
-参考`justify-content`，为交叉轴方向上元素间的关系。所以使用该属性的前提是`flex-wrap`属性不能为`nowrap`。
+交叉轴方向上多行元素间的对齐方式。所以使用该属性的前提是`flex-wrap`属性不能为`nowrap`。
 
 - start（`默认`）
 - center
@@ -97,9 +97,12 @@
 
 #### ① flex
 
+[参考](https://www.cnblogs.com/LangZ-/p/12703858.html)
 表示元素在`flex容器`中占据的主轴方向的长度。
 
-该属性实际上是`flex-grow`（比例）、`flex-shrink`和`flex-basis`（最小值）组合写法。
+该属性实际上是`flex-grow`（比例）、`flex-shrink`和`flex-basis`（最小值）组合写法。默认为`0 1 auto`，即不放大、会缩小、占据原始大小。
+
+> 放大是指对剩余空间的分配，即除去具有主轴初始宽度的元素占据的以外的空间。`flex-basis`就能定义或者重置元素的宽度。
 
 #### ② order
 

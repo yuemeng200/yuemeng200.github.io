@@ -150,21 +150,21 @@ array1.forEach((element) => console.log(element));
 
 迭代每一个元素，把**函数返回值构成的数组作为方法的返回值**。
 
-### filter()
+#### filter()
 
 是一种对数组的过滤方法，传入的是一个`断言函数`（即返回值为布尔值），方法的返回是所有经该函数后返回值为`true`的元素构成的数组。
 
-### find()
+#### find()
 
 查找方法，传入断言函数，**返回满足条件的第一个元素**。
 
 同理**`findIndex()`**返回元素的索引值。
 
-### every()和 some()
+#### every()和 some()
 
 断言方法，传入断言函数，返回值为布尔值。
 
-### reduce()
+#### reduce()
 
 归并方法，最终产生一个值，也称为注入（inject）和折叠（fold）。
 `reduce(func, initValue)`

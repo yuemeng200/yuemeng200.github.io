@@ -75,8 +75,9 @@ fucntion map(iterable, f){
 
 ## 2、生成器
 
-生成器`Generator`本质上是一种函数，用来生成某种迭代规则的迭代器`Iterator`对象，可以看做一种描述迭代关系的语法糖。
+### （1）介绍
 
+生成器`Generator`本质上是一种函数，用来生成某种迭代规则的迭代器`Iterator`对象，可以看做一种描述迭代关系的语法糖。
 ```js
 function* helloWorldGenerator() {
   yield "hello";
@@ -87,3 +88,75 @@ function* helloWorldGenerator() {
 let hw = helloWorldGenerator();
 hw.next(); // 'hello'
 ```
+Generator 函数是`协程`在 ES6 的实现，最大特点就是可以交出函数的执行权（即暂停执行）。
+
+### （2）在异步中使用
+
+ 异步的调用和流程管理是分离的：
+
+通过给`next()`传参给上一个`yield`表达式赋值，所以本质上来说`generator`本身做不到对异步的监测和回调，它只支持线程的切换和异步的同步格式，最后还要配合着`Promise`实现真正的异步的。
+
+```js
+var fetch = require('node-fetch');
+
+function* gen(){
+  var url = 'https://api.github.com/users/github';
+  var result = yield fetch(url);
+  console.log(result.bio);
+}
+
+var g = gen();
+var result = g.next(); // {value: Promise}
+
+result.value.then(function(data){
+  g.next(data)
+});
+```
+
+可以看到，虽然 Generator 函数将异步操作表示得很简洁，但是流程管理却不方便，我们需要手动管理，即手动去写执行器使用then层层添加回调结果。
+
+而`async`和`await`正是`generator`加上流程控制的语法糖：
+
+```js
+// 接收生成器作为参数，建议先移到后面，看下生成器中的代码
+var myAsync = (generator) => {
+  // 注意 iterator.next() 返回对象的 value 是 promiseAjax()，一个 promise
+  const iterator = generator();
+
+  // handle 函数控制 async 函数的 挂起-执行
+  const handle = (iteratorResult) => {
+    if (iteratorResult.done) return;
+
+    const iteratorValue = iteratorResult.value;
+
+    // 只考虑异步请求返回值是 promise 的情况
+    if (iteratorValue instanceof Promise) {
+      // 递归调用 handle，promise 兑现后再调用 iterator.next() 使生成器继续执行
+      // ps.原书then最后少了半个括号 ')'
+      iteratorValue
+        .then((result) => handle(iterator.next(result)))
+        .catch((e) => iterator.throw(e));
+    }
+  };
+
+  try {
+    handle(iterator.next());
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+myAsync(function* () {
+  try {
+    const a = yield Promise.resolve(1);
+    const b = yield Promise.resolve(a + 10);
+    const c = yield Promise.resolve(b + 100);
+    console.log(a, b, c); // 输出 1，11，111
+  } catch (e) {
+    console.log("出错了：", e);
+  }
+});
+```
+
+
+

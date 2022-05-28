@@ -56,7 +56,7 @@ let o1 = Object.create(Object.prototype);
 
 参数为其所继承的原型。
 
-## 3、属性操作
+## 3、属性操作 
 
 ### （1）访问属性
 
@@ -294,6 +294,7 @@ Map 对象是`键值对`的集合，但有自己的特性：
 - keys()
 - entries()
 - size
+  
   > Map 也是可迭代类型，使用`for...of`和`forEach`进行遍历。
 
 Map 还能和数组相互转化：

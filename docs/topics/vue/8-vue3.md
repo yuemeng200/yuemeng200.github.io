@@ -103,7 +103,7 @@ setup(props) {
 
 #### ② 原理
 
-通过`ref()`构建的响应式依然适用`Object.defineProperty()`，但是适用`reactive()`时是使用 ES6 的`Proxy`实现拦截，并在操作时使用`Reflect`。
+通过`ref()`构建的响应式依然使用`Object.defineProperty()`，但是`reactive()`时是使用 ES6 的`Proxy`实现拦截，并在操作时使用`Reflect`。
 
 ### (3) setup
 
