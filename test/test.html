@@ -1,0 +1,54 @@
+<!DOCTYPE html>  
+<html lang="zh">  
+<head>  
+    <meta charset="UTF-8" />  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />  
+    <title>Document</title>  
+    <style type="text/css">  
+    *{  
+        margin: 0;  
+        padding: 0;  
+    }  
+    .box{  
+        position: relative;  
+        width: 300px;  
+        height: 300px;  
+        border: 5px solid deepskyblue;  
+        border-radius: 50%;
+        margin-left: 300px;  
+    }  
+    .box i{  
+
+        width: 300px;  
+        height: 300px;  
+        position: absolute;  
+
+        /*旋转动画*/  
+        animation:circleRoate 5s infinite linear ;   
+
+    }  
+    .box i span{  
+        position: absolute;  
+        left: 240px;  
+        top: 25px;  
+        width: 10px;  
+        height: 10px;  
+        border-radius: 50%;  
+        background:#ff6200;  
+    }  
+    @keyframes circleRoate{  
+        from{transform: rotate(0deg);}  
+        to{transform: rotate(360deg);}  
+    }  
+</style>  
+</head>  
+<body>  
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="box">  
+        <i><span></span></i>  
+    </div>  
+</body>  
+</html>
