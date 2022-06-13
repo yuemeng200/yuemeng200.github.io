@@ -14,7 +14,7 @@
 
 打包更小：
 
-- 使用 webpack 的 tree-shaking
+- 拆分模块，使用 webpack 的 tree-shaking
 
 更易维护：
 
