@@ -1,6 +1,3 @@
-let vm = new Vue({
-  el: "#app",
-  data: {
-    name: "yuemeng",
-  },
-});
+let obj = {
+  name: 'yuemeng'
+}

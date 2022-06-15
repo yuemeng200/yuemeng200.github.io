@@ -1,5 +1,4 @@
-let viewportHeight = window.innerHeight;
-function getVirtualList(){
-  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  
+let data = {
+  name: 1
 }
+module.exports = data
