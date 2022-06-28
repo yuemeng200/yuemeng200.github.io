@@ -101,7 +101,7 @@ s | ms
 
 ## 4、animation
 
-其子属性和`transition`十分相似，后者用来描述属性的过渡，而其用来描述特定动作的过渡。且更细致一些。
+其子属性和`transition`十分相似，后者用来描述属性的过渡，而其用来描述特定动作的过渡。且更细致一些。我们也正是通过这个属性把相应的动作作用到元素上。
 
 - animation-name: keyframename | none
 - animation-duration

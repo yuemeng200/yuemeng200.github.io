@@ -99,13 +99,18 @@ null == false // false，null无法类型转化
   - parseFloat()
   - isNaN()
 
-> 数值的`toString()`方法值得注意，默认无论什么进制，都会转化为十进制字符串，如果想要保持原来的格式需要使用`toString(N)`。
+数值的`toString()`方法值得注意，默认无论什么进制，都会转化为十进制字符串，如果想要保持原来的格式需要使用`toString(N)`。
+
+> Number.EPSILON：最小精度，可以用来判断浮点数相等。
 
 #### （3）大数运算
+
+js 中的数字都是双精度浮点数表示的，其中符号位 1 位、阶码 11 位、尾数 52 位。
 
 `Number.MAX_VALUE`常量表示在 JavaScript 里所能表示的最大数值（1.798e308）。
 `Number.MIN_VALUE`表示在 JavaScript 中所能表示的最小的正值(5e-324)。
 `Number.MAX_SAFE_INTEGER`常量表示在 JavaScript 中最大的安全整数（2^53 - 1）。
+`Number.isFinite`、`Number.isSafeInteger`分别判断无穷和最大安全数。
 
 ```js
 Number.MAX_SAFE_INTEGER + 100; // error value
@@ -113,6 +118,10 @@ BigInt(Number.MAX_SAFE_INTEGER) + BigInt(100); // 9007199254741091n
 ```
 
 `ES2020`提出的`BigInt`提供了一种方法来表示大于 `2^53 - 1` 的整数。BigInt 可以表示任意大的整数。可以用在一个整数字面量后面加 n 的方式定义一个 BigInt ，如：10n 或者 BigInt(10)。
+
+> 当尾数位全为`1`时就到达了`MAX_SAFE_INTEGER`，此后的数值由于精度原因无法区分，严格说只能区分最前面的 53 位。当阶码全为 1 时，双精度浮点数达到阶码的极限，此时到达`MAX_VALUE`，但此时实际上还没有真正溢出，因为尾数此时还是`100..`，直到尾数也全为 1，此时到达`Infinity`。
+
+[参考](https://juejin.cn/post/7048191028280426526)
 
 ### 3、字符串
 

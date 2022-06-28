@@ -1,5 +1,6 @@
 # HTTPS
 
+基本用途：一是确定请求的目标服务端身份，二是保证传输的数据不会被网络中间节点窃听或者篡改。
 [阮一峰](https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
 
 ## 为什么使用
