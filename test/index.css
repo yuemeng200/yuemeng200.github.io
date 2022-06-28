@@ -14,7 +14,7 @@ body {
   position: absolute;
   top: calc(50% - 25px);
   left: calc(50% - 25px);
-  background-color: rgb(111, 82, 43);
+  background-color: #123242;
   border-radius: 50%;
 }
 

@@ -1,4 +1,3 @@
-function test(){
+function test() {
   console.log(this);
 }
-
