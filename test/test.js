@@ -1,3 +1,9 @@
-function test() {
-  console.log(this);
+function outer() {
+  result = 1;
+  inner();
 }
+function inner() {
+  console.log(result);
+}
+
+outer();
