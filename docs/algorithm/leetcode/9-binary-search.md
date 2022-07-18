@@ -41,57 +41,48 @@ class Solution:
 
 ## [34] 在排序数组中查找元素的第一个和最后一个位置
 
-还是二分查找，只是 target 可能有多个，所以要找出开始和结束问题，所以这个问题被转化为：**查找第一个不小于 target 的位置**和**查找第一个大于 target 的位置**。所以这种二分查找不会在中途退出，一直会找到最终的极限状态。网上有合并在一起的写法，但我在这里分开写了，同时最后统一处理查找的究竟对不对。
+还是二分查找，只是 target 可能有多个，所以要找出开始和结束问题，所以这个问题被转化为查找左右边界的问题，且左右边界不等于target。所以这种二分查找不会在中途退出，一直会找到最终的极限状态。网上有合并在一起的写法，但我在这里分开写了，同时最后统一处理查找的究竟对不对。
 
 ```js
-var searchRange = function (nums, target) {
-  let ans = [-1, -1];
-  const leftIdx = getFirst(nums, target);
-  const rightIdx = getMore(nums, target) - 1;
-  if (
-    leftIdx <= rightIdx &&
-    rightIdx < nums.length &&
-    nums[leftIdx] === target &&
-    nums[rightIdx] === target
-  ) {
-    ans = [leftIdx, rightIdx];
-  }
-  return ans;
-};
+var searchRange = function(nums, target) {
+    const getLeftBorder = (nums, target) => {
+        let left = 0, right = nums.length - 1;
+        let leftBorder = -2;// 记录一下leftBorder没有被赋值的情况
+        while(left <= right){
+            let middle = left + ((right - left) >> 1);
+            if(nums[middle] >= target){ // 寻找左边界，nums[middle] == target的时候更新right
+                right = middle - 1;
+                leftBorder = right;
+            } else {
+                left = middle + 1;
+            }
+        }
+        return leftBorder;
+    }
 
-var getFirst = function (nums, target) {
-  let left = 0,
-    right = nums.length - 1,
-    ans = nums.length;
-  while (left <= right) {
-    let mid = left + ((right - left) >> 1);
-    // 找个target也不停止，除非找的是第一个target，所以在相等时移动的是右边界
-    if (nums[mid] >= target) {
-      right = mid - 1;
-      ans = mid;
-    } else {
-      left = mid + 1;
+    const getRightBorder = (nums, target) => {
+        let left = 0, right = nums.length - 1;
+        let rightBorder = -2; // 记录一下rightBorder没有被赋值的情况
+        while (left <= right) {
+            let middle = left + ((right - left) >> 1);
+            if (nums[middle] > target) {
+                right = middle - 1;
+            } else { // 寻找右边界，nums[middle] == target的时候更新left
+                left = middle + 1;
+                rightBorder = left;
+            }
+        }
+        return rightBorder;
     }
-  }
-  return ans;
-};
-var getMore = function (nums, target) {
-  let left = 0,
-    right = nums.length - 1,
-    ans = nums.length;
-  while (left <= right) {
-    let mid = left + ((right - left) >> 1);
-    // 确保大于target时逐渐逼近
-    if (nums[mid] > target) {
-      right = mid - 1;
-      ans = mid;
-    }
-    // 等于时不需要记录结果
-    else {
-      left = mid + 1;
-    }
-  }
-  return ans;
+
+    let leftBorder = getLeftBorder(nums, target);
+    let rightBorder = getRightBorder(nums, target);
+    // 情况一
+    if(leftBorder === -2 || rightBorder === -2) return [-1,-1];
+    // 情况三
+    if (rightBorder - leftBorder > 1) return [leftBorder + 1, rightBorder - 1];
+    // 情况二
+    return [-1, -1];
 };
 ```
 

@@ -100,6 +100,8 @@ var threeSum = function (nums) {
 };
 ```
 
+同理其他的多数之和也可以这样做，多加循环层数就行了。
+
 ## [52] 最大连续子数组和
 
 这是道经典的`动态规划`问题，动态规划就是遍历数组填表的过程，表的下一项内容依赖前一项。
@@ -234,5 +236,50 @@ var numSubarrayProductLessThanK = function (nums, k) {
     ret += j - i + 1;
   }
   return ret;
+};
+```
+
+## [209] 长度最小的子数组
+
+滑动窗口，主边界为右边界
+
+```js
+var minSubArrayLen = function (target, nums) {
+  // 长度计算一次
+  const len = nums.length;
+  let l = (r = sum = 0),
+    res = len + 1; // 子数组最大不会超过自身
+  while (r < len) {
+    sum += nums[r++];
+    // 窗口滑动
+    while (sum >= target) {
+      // r始终为开区间 [l, r)
+      res = res < r - l ? res : r - l;
+      sum -= nums[l++];
+    }
+  }
+  return res > len ? 0 : res;
+};
+```
+
+## [904] 水果成篮
+
+也是经典的滑动窗口解法，注意这里`Map`的用法，涉及到`size`、`get()`、`set()`。
+
+```js
+var totalFruit = function (fruits) {
+  let ans = (i = 0),
+    counts = new Map();
+  for (let j = 0; j < fruits.length; j++) {
+    count = counts.get(fruits[j]);
+    counts.set(fruits[j], count === undefined ? 1 : count + 1);
+    while (counts.size > 2) {
+      counts.set(fruits[i], counts.get(fruits[i]) - 1);
+      if (counts.get(fruits[i]) === 0) counts.delete(fruits[i]);
+      i++;
+    }
+    ans = Math.max(ans, j - i + 1);
+  }
+  return ans;
 };
 ```

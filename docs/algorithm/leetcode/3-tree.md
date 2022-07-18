@@ -115,3 +115,231 @@ var mergeTrees = function (root1, root2) {
   return root1;
 };
 ```
+
+## [222] 完全二叉树节点个数
+
+两种求法。
+
+### （1）满二叉树+递归
+
+[参考](https://programmercarl.com/0222.%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%8A%82%E7%82%B9%E4%B8%AA%E6%95%B0.html#javascript)
+
+```js
+var countNodes = function (root) {
+  //利用完全二叉树的特点
+  if (root === null) {
+    return 0;
+  }
+  let left = root.left;
+  let right = root.right;
+  let leftHeight = 0,
+    rightHeight = 0;
+  while (left) {
+    left = left.left;
+    leftHeight++;
+  }
+  while (right) {
+    right = right.right;
+    rightHeight++;
+  }
+  if (leftHeight == rightHeight) {
+    return Math.pow(2, leftHeight + 1) - 1;
+  }
+  return countNodes(root.left) + countNodes(root.right) + 1;
+};
+```
+
+### （2）二分查找+位运算
+
+[参考](https://leetcode.cn/problems/count-complete-tree-nodes/solution/wan-quan-er-cha-shu-de-jie-dian-ge-shu-by-leetco-2/)
+
+```js
+const exists = (root, level, k) => {
+  let bits = 1 << (level - 1);
+  let node = root;
+  while (node !== null && bits > 0) {
+    if (!(bits & k)) {
+      node = node.left;
+    } else {
+      node = node.right;
+    }
+    bits >>= 1;
+  }
+  return node !== null;
+};
+
+var countNodes = function (root) {
+  if (root === null) {
+    return 0;
+  }
+  let level = 0;
+  let node = root;
+  while (node.left !== null) {
+    level++;
+    node = node.left;
+  }
+  let low = 1 << level,
+    high = (1 << (level + 1)) - 1;
+  while (low < high) {
+    const mid = Math.floor((high - low + 1) / 2) + low;
+    if (exists(root, level, mid)) {
+      low = mid;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return low;
+};
+```
+
+## [110] 平衡二叉树
+
+注意平衡二叉树的定义是左右子树的深度相差不超过 1，且左右子树都是平衡二叉树。
+本身就是一个递归的定义。
+
+```js
+var isBalanced = function (root) {
+  if (!root) return true;
+  return (
+    isBalanced(root.left) &&
+    isBalanced(root.right) &&
+    Math.abs(height(root.left) - height(root.right)) <= 1
+  );
+};
+
+function height(root) {
+  if (!root) return 0;
+  return Math.max(height(root.left), height(root.right)) + 1;
+}
+```
+
+## [257] 二叉树的所有路径
+
+树结构不存在环，到任一点的路径总是确定的。
+
+```js
+var binaryTreePaths = function (root) {
+  let paths = [];
+  let getPaths = (node, cur) => {
+    cur += node.val;
+    if (!node.left && !node.right) {
+      paths.push(cur);
+      return;
+    }
+    cur += "->";
+    node.left && getPaths(node.left, cur);
+    node.right && getPaths(node.right, cur);
+  };
+  getPaths(root, "");
+  return paths;
+};
+```
+
+这个递归是带着回溯的过程的，path 是有状态的，但每次结束递归 path 总是回退到之前的状态，这就是回溯。
+
+## [501] 二叉搜索树中的众数
+
+注意这种使用指针原地操作的方案，和操作有序数组相似。
+
+```js
+var findMode = function (root) {
+  // 不使用额外空间，使用中序遍历,设置出现最大次数初始值为1
+  let count = 0,
+    maxCount = 1;
+  let pre = root,
+    res = [];
+  // 1.确定递归函数及函数参数
+  const travelTree = function (cur) {
+    // 2. 确定递归终止条件
+    if (cur === null) {
+      return;
+    }
+    travelTree(cur.left);
+    // 3. 单层递归逻辑
+    if (pre.val === cur.val) {
+      count++;
+    } else {
+      count = 1;
+    }
+    pre = cur;
+    if (count === maxCount) {
+      res.push(cur.val);
+    }
+    if (count > maxCount) {
+      res = [];
+      maxCount = count;
+      res.push(cur.val);
+    }
+    travelTree(cur.right);
+  };
+  travelTree(root);
+  return res;
+};
+```
+
+## [236] 二叉树的最近公共祖先
+
+:star:
+这道题算得上最难的那种递归，头递归，且逻辑判断极其复杂。首先要明确递归函数返回值的含义，即当前节点是否是某一给定节点的祖先。
+
+```js
+var lowestCommonAncestor = function (root, p, q) {
+  let ans;
+  let dfs = (root, p, q) => {
+    if (!root) return false;
+    let leftAns = dfs(root.left, p, q);
+    let rightAns = dfs(root.right, p, q);
+    if (
+      (leftAns && rightAns) ||
+      ((root.val === p.val || root.val === q.val) && (leftAns || rightAns))
+    ) {
+      ans = root;
+    }
+    return leftAns || rightAns || root.val === p.val || root.val === q.val;
+  };
+  dfs(root, p, q);
+  return ans;
+};
+```
+
+## [450] 删除二叉搜索树中的节点
+
+删除和搜索的整体框架是一样的，都是找。重要的就是找到 root 后怎么处理，如果 root 只有单侧节点，单侧子树直接提升 root 位置即可。如果左右子树均存在，应当用右子树直接替换 root，把左子树挪到右子树最左节点的左孩子位置。（另一种方案是把右子树的最左节点替换 root，代码实现麻烦）
+
+```js
+var deleteNode = function (root, key) {
+  if (root === null) return root;
+  if (root.val === key) {
+    if (!root.left) return root.right;
+    else if (!root.right) return root.left;
+    else {
+      let cur = root.right;
+      while (cur.left) {
+        cur = cur.left;
+      }
+      cur.left = root.left;
+      root = root.right;
+      delete root;
+      return root;
+    }
+  }
+  if (root.val > key) root.left = deleteNode(root.left, key);
+  if (root.val < key) root.right = deleteNode(root.right, key);
+  return root;
+};
+```
+
+## [669] 修剪二叉搜索树
+
+修剪二叉搜索树到指定范围。猛一看不简单。
+
+```js
+var trimBST = function (root, low, high) {
+  if (!root) return null;
+  if (root.val < low) return trimBST(root.right, low, high);
+  if (root.val > high) return trimBST(root.left, low, high);
+  root.left = trimBST(root.left, low, high);
+  root.right = trimBST(root.right, low, high);
+  return root;
+};
+```

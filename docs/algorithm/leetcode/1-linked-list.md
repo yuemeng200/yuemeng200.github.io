@@ -182,6 +182,40 @@ var hasCycle = function (head) {
 
 > js 没有实现`hashMap`...
 
+## [142] 环形链表 II
+
+题目和前面一样，但要求返回入环的位置。
+![1657507535825](image/1-linked-list/1657507535825.png)
+
+根据 slow 和 fast 走过的距离和两者关系可得到关于 a 的式子：`a=c+(n−1)(b+c)`，表示 a 与 c 相差环长度的整数倍。若有另一个指针 ptr 从 head 与 slow 同时开始走，恰在入环点相遇。
+
+```js
+var detectCycle = function (head) {
+  if (head === null) {
+    return null;
+  }
+  let slow = head,
+    fast = head;
+  while (fast !== null) {
+    slow = slow.next;
+    if (fast.next !== null) {
+      fast = fast.next.next;
+    } else {
+      return null;
+    }
+    if (fast === slow) {
+      let ptr = head;
+      while (ptr !== slow) {
+        ptr = ptr.next;
+        slow = slow.next;
+      }
+      return ptr;
+    }
+  }
+  return null;
+};
+```
+
 ## [160] 相交链表
 
 当你走到终点时，开始走她走过的路，
