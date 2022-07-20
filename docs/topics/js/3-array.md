@@ -102,11 +102,7 @@ let doubleArr = Array.from(Array(10), () => {
 升序：
 
 ```js
-sort((a, b) => {
-  if (a.value < b.value) return 1;
-  else if (a.value > b.value) return -1;
-  else return 0;
-});
+sort((a, b) => a - b);
 ```
 
 ### (2) 非原地方法
