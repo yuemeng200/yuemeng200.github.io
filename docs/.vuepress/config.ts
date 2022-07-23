@@ -149,7 +149,9 @@ export default defineConfig({
         "9-binary-search",
         "10-geometry",
         '11-bigdata',
-        '12-regex'
+        '12-regex',
+        '13-greedy',
+        '14-stack-and-queue',
       ],
       "/algorithm/summary/": ["", "1-dp"],
       "/cs/cp": ["", "cp"],

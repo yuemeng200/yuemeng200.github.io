@@ -1,18 +1,18 @@
 # 第 1 章 基础知识
 
-> 准确地说这完全称不上一份标准的入门教程，只是对其中比较关键的和容易出错的内容进行解释。需要查看详尽文档请移步[vue 官方文档](https://cn.vuejs.org/v2/guide/)
+> 准确地说这完全算不上一份标准的入门教程，只是对其中比较关键的和容易出错的内容进行解释。需要查看详尽文档请移步[vue 官方文档](https://cn.vuejs.org/v2/guide/)
 
 ## 1、语言规范
 
 总结`vue`的基本语法规则能减少写出常见的 bug 以及快速与其他框架相区分。
 
-- 在`template`中使用`vm`实例上的内容不需要`this`，在`script`中需要。
-- vue 的指令为`v-directive="value"`或者`v-directive:argument="value"`的格式。`。
-- 标签的属性中需要写变量时必须使用`v-bind`，值的最外层引号是语法规定，不是字符意义的引号。
+- 在`template`中使用`vm`实例上的内容不需要`this`，在`script`中需要。原因是模板有个预编译的过程，脚本不会预处理。
+- vue 的指令为`v-directive="value"`或者`v-directive:argument="value"`的格式。
+- 标签的属性中使用变量时必须用`v-bind`，值的最外层引号是语法规定，不是字符意义的引号。
 - data 是个函数，不是对象。
-- 不要给实例选项传递箭头函数。
+- 不要给实例选项传递箭头函数。不然其中使用的的 this 不指向实例对象。
 - vue 响应式只包含实例创建时就存在的数据及其属性。
-- 需要时尽量使用`<template/>`，生成的代码中不会包含该元素。
+- `props`应该只传递基本信息，复杂信息在子组件`created`钩子中获取。
 
 ## 2、指令
 
@@ -35,11 +35,12 @@
 
 - v-bind:[动态参数]="value"可用。
 - v-on:<动作>.<修饰符>可用。
-- `v-if`直接控制 dom 元素是否被生成，而`v-show`只是控制`display`属性，切换时不卸载组件实例(而`visibility: hidden`只是视觉上不可见，保持原来位置)。详情可查看：[v-if 与 v-show](https://vue3js.cn/interview/vue/show_if.html#%E4%B8%89%E3%80%81v-show%E4%B8%8Ev-if%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90)
-- vue 会尽量高效地复用元素，可以给元素声明不同的`key`来强制替换。可以使用改变`key`的方式强制重新加载子组件。
-- `v-for`的标准格式：` <li v-for="(item, index) in items" :key="item.key"></li>`，也能遍历对象。
-- 我们可能会需要有选择地使用`v-for`内容，不要把`v-if`与之写在同一元素上，使用`template`。
-- `v-on`给调用方法传递特殊变量`$event`，访问原始的`dom事件`。
+- `v-if`直接控制 dom 元素是否被生成，而`v-show`只是控制`display`属性让其不渲染，dom 树中还是存在的。当需要频繁控制显示和隐藏时用`v-show`，其生命周期会触发。
+  > 而`visibility: hidden`相当于透明显示。
+- vue 会尽量高效地复用元素，可以给元素声明不同的`key`来强制替换。可以使用改变`key`的方式强制重新加载元素。
+- `v-for`的标准格式：` <li v-for="(item, index) in items" :key="item.key"></li>`，也适用于遍历对象，但注意不要拿 index 当 key 来用。
+- 我们可能会需要有选择地使用`v-for`内容，不要把`v-if`与之写在同一元素上，使用`template`，生成的代码中不会包含该元素
+- `v-on`会自动给回调方法传递`$event`，用来访问原始的`dom事件`。
 
 ### (3) 修饰符
 
@@ -55,17 +56,14 @@
 
 #### ② 事件修饰符
 
-- stop：阻止事件冒泡。
-- prevent：阻止默认行为。
+- `stop`：阻止事件冒泡（传播）。
+- `prevent`：阻止默认行为。
 - self：只在 event.target 是自身时触发。
-  
-  > 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 v-on:click.prevent.self 会阻止所有的点击，而 v-on:click.self.prevent 只会阻止对元素自身的点击
 - once：事件只触发一次。
 - capture：事件响应从冒泡改为捕获。
-- passtive：相当于对`onscroll`事件节流处理。
-  > 节流（）指在事件触发时重置倒计时，倒计时结束后响应。
-  > 防抖（debounce）指在响应后设置倒计时，倒计时结束前不再响应，且事件触发重置倒计时。
-- native：监听组件原生事件，默认监听自定义事件。
+- passive：相当于对`onscroll`事件节流处理。
+- native：监听组件原生事件，默认监听自定义事件。（已移除）
+  > Vue2.x 中为了监听自定义组件的原生事件，我们使用`.native`修饰。这在 Vue3.x 中已经[移除](https://v3.cn.vuejs.org/guide/migration/v-on-native-modifier-removed.html#_3-x-%E8%AF%AD%E6%B3%95)，所有没在`emits`选项中声明的事件同样被视为原生事件处理（除非开启了 `inheritAttrs: false`，此时拒绝接收一切未指定的内容）
 
 #### ③ 按键事件修饰符
 
@@ -148,15 +146,6 @@ mounted(){
   })
 }
 ```
-
-## 4、生命周期
-
-- 初始化阶段：实例初始化执行环境，完成后触发`beforeCreate`。之后将`data`注入到响应式系统中，并设置`watch`、`methods`和`computed`等实例选项，完成后触发`created`；
-- 模板编译和挂载阶段：首先将模板解析为`render`函数（AST 树），完成后触发`beforeMount`。（:bell: 注意此时如果有子组件，开始触发子组件实例的生命周期，以此类推，因为父组件依赖子组件，子组件不准备好父组件无法生成虚拟 dom）之后通过`h()`函数将实例中的数据上树，此时就生成了`VNode`，即虚拟 dom，它是 dom 结构的一种简化表示，有利于响应式依赖的收集和变更通知，同时也利于后续的`diff`操作。之后将虚拟 dom 转化为真实 dom，即`this.$el`，并取代`el`选项指定的真实 dom。完成后触发`mounted`。
-- 更新阶段：当状态发生改变，触发`beforeUpdate`，通知依赖变更状态，生成新的虚拟 dom，对比变更前后的虚拟 dom，最小量更新真实 dom 元素。完成后触发`updated`
-- 销毁阶段：当组件销毁时首先触发`beforeDestory`，此钩子函数应该进行一些自定义对象清理，之后会自动清理实例选项，并等待子组件摧毁结束，以此类推。全部完成才会触发`destoryed`。
-
-<img src="https://cn.vuejs.org/images/lifecycle.png" alt="实例声明周期" style="zoom: 50%;" />
 
 ## 5、computed 和 watch
 

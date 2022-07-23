@@ -1,7 +1,9 @@
 # 第 5 章 动画
 
 通过 css 实现动画有两个方案：
-第一种是`transform`配合`transition`，前者更改元素属性，后者描述属性更改时的过渡效果。一般需要手动触发`transform`，像`hover`这种元素状态。
+第一种是`transform`配合`transition`，前者更改元素属性，后者描述属性更改时的过渡效果。一般需要事件来触发`transform`，像`hover`这种元素状态改变。
+第二种是`keyframes`配合`animation`，一般用作持续的动画效果。
+当然也可以使用 JS 操作`transform`触发`transition`，或者通过 JS 给元素添加上指定的`animation-name`触发`keyframes`。
 
 ## 1、transform
 
@@ -31,7 +33,7 @@
 ### transition-property
 
 （必须）
-设置过渡效果的属性名
+设置应用过渡效果的属性名
 none | all | property
 
 > 配合`transform`时记得用`all`
@@ -101,7 +103,7 @@ s | ms
 
 ## 4、animation
 
-其子属性和`transition`十分相似，后者用来描述属性的过渡，而其用来描述特定动作的过渡。且更细致一些。我们也正是通过这个属性把相应的动作作用到元素上。
+其子属性和`transition`十分相似，我们也正是通过这个属性把相应的动作作用到元素上。
 
 - animation-name: keyframename | none
 - animation-duration

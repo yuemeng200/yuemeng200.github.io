@@ -46,3 +46,7 @@ function lazyload(imgList = [], index = 0) {
 ### (3) 分页渲染
 
 监听下拉，触底时渲染一批新数据。
+
+## 3、移动端滚动性能
+
+使用 passive
